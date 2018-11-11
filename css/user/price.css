@@ -1,0 +1,52 @@
+.price_item{
+	background-color: #FFFFFF;
+	border-radius: 0.05rem;
+	width: 6.86rem;
+	margin: 0 auto;
+	position: relative;
+}
+.item_head{
+	display: flex;
+	font-size: 0.28rem;
+	margin-top: 0.16rem;
+	justify-content: space-between;
+	padding: 0 0.25rem;
+	height: 0.66rem;
+	align-items: center;
+	border-bottom:  1px dashed #DDDDDD;
+}
+.item_head p:nth-child(1){
+	color: #6D992A;
+}
+.item_head p:nth-child(2){
+	color: #666666;
+}
+.price_content{
+	padding:  0.35rem 0.25rem;
+}
+.price_add{
+	font-size: 0.3rem;
+}
+.price_add span{
+	margin-right: 0.35rem;
+}
+.price_time{
+	font-size: 0.24rem;
+	color: #333333;
+	margin-top: 0.19rem;
+	line-height: 0.24rem;
+}
+.price_btn{
+	position: absolute;
+	width: 1.8rem;
+	height: 0.66rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: #FFFFFF;
+	font-size: 0.24rem;
+	background-color: #80B13B;
+	right: 0.24rem;
+	bottom: 0.24rem;
+	border-radius: 0.05rem;
+}

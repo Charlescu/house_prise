@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+<link rel="stylesheet" type="text/css" href="../css/init.css" />
+<link rel="stylesheet" type="text/css" href="http://at.alicdn.com/t/font_658342_4rtajfzq26e.css" />
+<link rel="stylesheet" type="text/css" href="../css/user/information.css" />
+<script src="../js/base.js" type="text/javascript" charset="utf-8"></script>
+<title>我的资料</title>
+</head>
+<body>
+	<header class="mui_bar">
+		<i class="iconfont icon-fanhui"></i>
+		<h1 class="mui_title">我的资料</h1>
+	</header>
+	<div class="contaienr">
+		<div class="info_list">
+			<div class="info_item">
+				<p class="info_tit">手机号</p>
+				<p id="tel" class="info_details">18211132493</p>
+				<img src="../images/c07@2x.png" class="jiantou" />
+			</div>
+			<div class="info_item">
+				<p class="info_tit">推荐人</p>
+				<p class="info_details">15732136954</p>
+			</div>
+		</div>
+
+		<div class="info_item mtop">
+			<p class="info_tit">银行卡</p>
+			<p class="info_details">您还没有绑定银行卡</p>
+				<a href="bind_card.html"><p class="bind">去绑定</p></a>
+			<img src="../images/c07@2x.png" class="jiantou" />
+		</div>
+		
+		<div class="info_list">
+			<div class="info_item">
+				<p class="info_tit">银行名称</p>
+				<p class="info_details">中国银行</p>
+				<img src="../images/c07@2x.png" class="jiantou" />
+			</div>
+			<div class="info_item" style="border-bottom: none;">
+				<p class="info_tit">银行卡号</p>
+				<p class="info_details">6212260406005902365</p>
+			</div>
+		</div>
+	</div>
+<script src="../js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+	var tel;
+	$(document).ready(function(){
+		myMes();
+	});
+	//我的资料数据接口
+	function myMes(){
+		tel = $('#tel').html();
+		$.ajax({
+			url: baseUrl + 'User/myMes',
+			type: 'POST',
+			dataType: 'JSON',
+			data: {
+				token: localStorage.getItem('token'),
+				tel: tel,
+			},
+			success:function(res){
+				console.log(res);
+				var code = res.code;
+				tel = res.data.user.tel;
+				//存储手机号
+				localStorage.setItem('tel',tel);
+				if(code == 1){
+					$('#tel').html(tel);
+				}
+			}
+		})	
+	}
+</script>
+</body>
+</html>

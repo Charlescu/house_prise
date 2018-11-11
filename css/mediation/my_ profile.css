@@ -1,0 +1,73 @@
+
+.content_item {
+    margin-top: 0.16rem;
+}
+
+.item_list {
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    padding: 0.36rem;
+    border-bottom: 0.01rem solid #EBEBEB;
+    position: relative;
+}
+.item_list1 {
+    width: 200%;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    padding: 0.36rem 0.36rem 0.36rem 0;
+    border-bottom: 0.01rem solid #EBEBEB;
+    position: relative;
+}
+
+.list_title {
+    width: 2rem;
+    font-size: 0.3rem;
+    color: #999;
+}
+
+.list_title1 {
+    width: 2rem;
+    font-size: 0.3rem;
+    color: #999;
+    margin-top: 0.36rem;
+}
+.list_content {
+    font-size: 0.3rem;
+    color: #333;
+}
+
+.input_item {
+    /*color: #333;*/
+    border: 0;
+    outline: none;
+}
+
+.icon-youkuohao {
+    font-size: 0.28rem;
+    color: #ccc;
+    position: absolute;
+    right: 0.36rem;
+}
+
+.select_box {
+    display: flex;
+    /*align-items: center;*/
+    padding-left: 0.36rem;
+    background-color: #fff;
+}
+
+.save_btn{
+    width: 93%;
+    height: 0.88rem;
+    font-size: 0.36rem;
+    color: #fff;
+    background-color: #7FB230;
+    border-radius: 0.44rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    margin-top: 0.32rem;
+}

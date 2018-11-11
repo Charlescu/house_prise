@@ -1,0 +1,28 @@
+.contaienr{
+	background-color: #FFFFFF;
+	height: 100%;
+}
+.video_wrap{
+	height: 3.6rem;
+	width: 100%;
+}
+.about_us{
+	background-color: #FFFFFF;
+	margin-top: 0.16rem;
+	overflow: hidden;
+	padding:  0 0.3rem;
+}
+.about_tit{
+	font-size: 0.32rem;
+	color: #1A1A1A;
+	display: block;
+	text-align: center;
+	margin-top: 0.32rem;
+	margin-bottom: 0.28rem;
+	line-height: 0.32rem;
+	font-weight: bold;
+}
+.paper_text{
+	font-size: 0.27rem;
+	line-height: 0.5rem;
+}

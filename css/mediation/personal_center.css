@@ -1,0 +1,172 @@
+
+.container {
+    background-color: #F5F5FA;
+}
+
+.banner_box {
+    height: 4.88rem;
+    background: url("../../images/bg06@2x.png") no-repeat;
+    background-size: 100% 100%;
+    padding: 0 0.32rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.banner_bar {
+    width: 100%;
+    font-size: 0.36rem;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 0.4rem;
+    position: relative;
+}
+
+.banner_title {
+    margin: 0 auto;
+}
+
+.log_out {
+    font-size: 0.24rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    right: 0;
+}
+
+.header_portrait {
+    width: 1.3rem;
+    height: 1.3rem;
+    margin-top: 1.04rem;
+}
+
+.header_portrait img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+.user_box {
+    display: flex;
+    margin: 0.23rem 0;
+}
+
+.name {
+    font-size: 0.32rem;
+    font-weight: bold;
+    color: #fff;
+}
+
+.star_level {
+    display: flex;
+}
+
+.icon-xing {
+    color: #fff;
+}
+
+.banner_item {
+    font-size: 0.24rem;
+    color: #fff;
+    display: flex;
+}
+
+.line {
+    margin: 0 0.41rem;
+}
+
+.information_box {
+    padding: 0 0.32rem;
+    box-sizing: border-box;
+    margin: 0.16rem 0;
+}
+
+.personal_center_information {
+    background-color: #fff;
+    overflow: hidden;
+    padding: 0.15rem 0;
+    border-radius: 0.05rem;
+}
+
+.information_item {
+    padding: 0 0.23rem;
+    margin: 0.15rem 0;
+    display: flex;
+}
+
+.information_title {
+    font-size: 0.28rem;
+    color: #1A1A1A;
+}
+
+.information_content {
+    font-size: 0.28rem;
+    color: #333333;
+    margin-left: 0.38rem;
+}
+
+.content_item {
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: flex-end;
+}
+
+.item_list {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 0.01rem solid #EBEBEB;
+    padding: 0.21rem 0.26rem;
+    width: 7.18rem;
+}
+.item_list:last-child{
+	border-bottom: none;
+}
+.list_content {
+    font-size: 0.3rem;
+    color: #1A1A1A;
+    display: flex;
+    align-items: center;
+}
+
+.list_icon {
+    width: 0.5rem;
+    height: 0.5rem;
+    font-size: 0.28rem;
+    color: #fff;
+    border-radius: 50%;
+    background: linear-gradient(to top, #4097FE, #50BCFD);
+    margin-right: 0.21rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.icon-fenxiang,.icon-wenjianfile,.icon-zhanghu{
+    font-size: 0.24rem;
+}
+
+
+.icon-youkuohao {
+    font-size: 0.28rem;
+    color: #ccc;
+    display: flex;
+    align-items: center;
+}
+.popup_box{
+    width:5rem;
+    height:2.5rem;
+    background:rgba(0,0,0,0.8);
+    border-radius:0.1rem;
+    font-size: 0.4rem;
+    color: #fff;
+    position: fixed;
+    top: 4.88rem;
+    left: 1.25rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

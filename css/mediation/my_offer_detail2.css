@@ -1,0 +1,122 @@
+
+.banner_box {
+    height: 1.2rem;
+    background: url("../../images/bg04@2x.png") no-repeat;
+    background-size: 100% 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.22rem 0.27rem;
+}
+
+.countdown {
+    font-size: 0.36rem;
+    color: #FFFFFF;
+}
+
+.release_time {
+    font-size: 0.24rem;
+    color: #fff;
+}
+
+.offer {
+    font-size: 0.30rem;
+    color: #fff;
+
+}
+
+.content_item {
+    padding: 0 0.32rem;
+    margin-bottom: 1.4rem;
+}
+
+.item_list {
+    background: #fff;
+    padding: 0.35rem 0.32rem;
+    font-size: 0.28rem;
+    color: #999;
+    margin-top: 0.32rem;
+}
+
+.list_title {
+    font-size: 0.32rem;
+    color: #000;
+}
+
+.list_content {
+    padding: 0 0.25rem;
+    margin-top: 0.30rem;
+    line-height: 0.6rem;
+}
+
+.total_box {
+    display: flex;
+    align-items: center;
+    margin-top: 0.38rem;
+}
+
+.total_content {
+    width: 1.31rem;
+    font-size: 0.3rem;
+    color: #1A1A1A;
+    text-align: center;
+    margin-right: 1.03rem;
+}
+
+.cost_box {
+    display: flex;
+    font-size: 0.24rem;
+    background-color: #fff;
+    padding: 0.35rem 0.32rem;
+    color: #999;
+    margin-top: 0.32rem;
+}
+
+.list_content1 {
+    color: #1A1A1A;
+    padding: 0 0.25rem;
+    margin-top: 0.30rem;
+    line-height: 0.5rem;
+}
+
+.list_content1 text {
+    color: #ED5B5B;
+}
+
+.bottom_box {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    background-color: #fff;
+    padding: 0.1rem 0.36rem;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+}
+
+.confirm_btn {
+    width: 2.6rem;
+    height: 0.8rem;
+    background: rgba(128, 177, 59, 1);
+    border-radius: 0.4rem;
+    font-size: 0.32rem;
+    color: rgba(255, 255, 255, 1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.view_btn {
+    width: 2.2rem;
+    height: 0.8rem;
+    background: rgba(255, 255, 255, 1);
+    border-radius: 0.4rem;
+    font-size: 0.32rem;
+    color: rgba(153, 153, 153, 1);
+    border: 1px solid #EBEBEB;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 0.2rem;
+}

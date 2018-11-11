@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+    <title>我要报价-1</title>
+
+    <link rel="stylesheet" href="http://at.alicdn.com/t/font_658342_8kwarb1xp0b.css">
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/init.css">
+    <link rel="stylesheet" href="../css/mediation/my_offer.css">
+    <script src="../js/fontsize.js"></script>
+    <script src="../js/base.js"></script>
+    
+</head>
+<body>
+<header class="mui_bar">
+    <i class="iconfont icon-fanhui"></i>
+</header>
+<div class="content_item">
+    <div class="title">我要报价</div>
+    <div class="hint_information">—— 填写报价信息 ——</div>
+    <div class="item_list1">
+        <div class="list_left">
+            <div class="list_title">房价（万元）</div>
+            <div class="list_content"><input type="text" onblur="calcu()" id="housing_price" placeholder="请填写房价" class="input_item"></div>
+        </div>
+        <div class="list_right">
+            <div class="list_title">评估税</div>
+            <div class="list_content"><input type="text" onblur="calcu()" id="assessment_tax" placeholder="请填写评估税" class="input_item"></div>
+        </div>
+    </div>
+    <div class="item_list1">
+        <div class="list_left">
+            <div class="list_title">增值税</div>
+            <div class="list_content"><input type="text" onblur="calcu()" id="value_added_tax" placeholder="请填写增值税" class="input_item"></div>
+        </div>
+        <div class="list_right">
+            <div class="list_title">贷款担保税</div>
+            <div class="list_content"><input type="text" onblur="calcu()" id="security_tax" placeholder="请填写贷款担保税" class="input_item"></div>
+        </div>
+    </div>
+    <div class="item_list1">
+        <div class="list_left">
+            <div class="list_title">契税</div>
+            <div class="list_content"><input type="text" onblur="calcu()" id="deed_tax" placeholder="请填写契税" class="input_item"></div>
+        </div>
+        <div class="list_right">
+            <div class="list_title">其他税费</div>
+            <div class="list_content"><input type="text" onblur="calcu()" id="else_tax" placeholder="请填写其他税费" class="input_item"></div>
+        </div>
+    </div>
+    <div class="item_list1">
+        <div class="list_left">
+            <div class="list_title">个税</div>
+            <div class="list_content"><input type="text" onblur="calcu()" id="personal_income_tax" placeholder="请填写个税" class="input_item"></div>
+        </div>
+        <div class="list_right">
+            <div class="list_title">居间服务费</div>
+            <div class="list_content"><input type="text" onblur="calcu()" id="service_charge" placeholder="请填写居间服务费" class="input_item"
+              onblur="calcu()"
+                ></div>
+        </div>
+    </div>
+    <div class="total"> 总价：
+        <text>0.00</text>
+        万元
+    </div>
+    <div class="note">备注</div>
+    <textarea placeholder="请填写备注" id="else" cols="30" rows="10" class="note_info"></textarea>
+
+    <div class="bottom_btn">下一步</div>
+    <div class="popup"></div>
+</div>
+
+<script src="../js/jquery-2.1.0.js"></script>
+ <script>
+    $(window).ready(function () {
+        $('.icon-fanhui').on('click',function(){
+              window.location.href = 'personal_center.html';
+      })
+    });
+    //提交报价
+    var yznum = /^(\+|-)?(0|[1-9]\d*)(\.\d*[1-9])?$/;
+        $(".bottom_btn").click(function () {         
+         if($('#housing_price').val() == '' && !yznum.test($('#housing_price').val())){
+                popup('请填写正确的房价');
+            }else if($('#assessment_tax').val() == '' && !yznum.test($('#assessment_tax').val())){
+                 popup('请填写正确的评估税,没有请填写0');
+            }else if($('#value_added_tax').val() == '' && !yznum.test($('#value_added_tax').val())){
+                 popup('请填写正确的增值税,没有请填写0');
+            }else if($('#security_tax').val() == '' && !yznum.test($('#security_tax').val())){
+                 popup('请填写正确的贷款担保税,没有请填写0');
+            }else if($('#deed_tax').val() == '' && !yznum.test($('#deed_tax').val())){
+                popup('请填写正确的契税,没有请填写0');
+            }else if($('#else_tax').val() == '' && !yznum.test($('#else_tax').val())){
+                     popup('请填写正确的其他税费,没有请填写0');
+            }else if($('#personal_income_tax').val() == '' && !yznum.test($('#personal_income_tax').val())){
+                popup('请填写正确的个税,没有请填写0');
+            }else if($('#service_charge').val() == '' && !yznum.test($('#service_charge').val())){
+                popup('请填写正确的居间服务费,没有请填写0');
+            }else{
+               
+               var message = $('textarea').html();
+               var housing_price,assessment_tax,value_added_tax,security_tax,deed_tax,else_tax,personal_income_tax,service_charge,elses;
+                   housing_price = $('#housing_price').val();
+                   assessment_tax = $('#assessment_tax').val();
+                   value_added_tax = $('#value_added_tax').val();
+                   security_tax = $('#security_tax').val();
+                   deed_tax = $('#deed_tax').val();
+                   else_tax = $('#else_tax').val();
+                   personal_income_tax = $('#personal_income_tax').val();
+                   service_charge = $('#service_charge').val()
+                   elses = $('#else').val();
+                   need_id = localStorage.getItem('need_id');
+                   console.log()
+             $.ajax({
+                type:'POST',
+                datatype:'jsonp',
+                url: baseUrl + 'Intermediaryneed/send',
+                page:1,
+                data:{ 
+                  need_id:need_id,
+                  housing_price: housing_price,
+                  assessment_tax: $('#assessment_tax').val(),
+                  value_added_tax: $('#value_added_tax').val(),
+                  security_tax: $('#security_tax').val(),
+                  deed_tax: $('#deed_tax').val(),
+                  else_tax: $('#else_tax').val(),
+                  personal_income_tax: $('#personal_income_tax').val(),
+                  service_charge: service_charge,
+                  else:elses,
+                  token:localStorage.getItem('token'),
+                },
+                success:function(res){
+                    console.log(res);
+                     
+                    //保存房价
+                    var housing_price = $('#housing_price').val();
+                    localStorage.setItem('housing_price',housing_price);
+                    console.log(housing_price);
+                     window.location.href = 'my_offer2.html';
+                }
+            })
+          }          
+        })
+  //实时计算价格计算总价
+   function calcu(){
+       var sum = 0;
+       var yznum = /^(\+|-)?(0|[1-9]\d*)(\.\d*[1-9])?$/;
+    $('.content_item input[type="text"]').each(function(){
+        var num =  $(this).val();
+         if(num == ''){
+            return false;
+         }else if(!yznum.test(num)){
+            popup('请输入数字价格')
+            sum = sum;
+         }else{
+           sum += parseFloat(num);
+         }
+          $(".content_item").find("text:first").html(sum);
+        });
+   }
+        
+</script>
+</body>
+
+</html>

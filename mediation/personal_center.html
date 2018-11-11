@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<title>中介个人中心</title>
+
+		<link rel="stylesheet" href="http://at.alicdn.com/t/font_658342_8kwarb1xp0b.css">
+        <link rel="stylesheet" href="../css/reset.css">
+        
+		<link rel="stylesheet" href="../css/mediation/personal_center.css">
+		<script src="../js/fontsize.js"></script>
+		
+        <script src="../js/base.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+
+	<body>
+		<div class="container">
+			<div class="banner_box">
+				<div class="banner_bar">
+					<div class="iconfont icon-jiankuohaocudazuo"></div>
+					<div class="banner_title">中介个人中心</div>
+					<div class="log_out">
+						<i class="iconfont icon-guanjituichu"></i>
+						<div>退出登录</div>
+					</div>
+				</div>
+				<div class="header_portrait">
+					<img class="head_img" src="" alt="">
+				</div>
+
+				<div class="user_box">
+					<div class="name">苏菀菁</div>
+					<div class="star_level">
+						<div class="iconfont icon-xing"></div>
+						<div class="iconfont icon-xing"></div>
+						<div class="iconfont icon-xing"></div>
+					</div>
+				</div>
+
+				<div class="banner_item">
+					<div class="change_num">修改密码</div>
+					<div class="line">|</div>
+					<div class="signed">今日签到</div>
+				</div>
+			</div>
+
+			<div class="information_box">
+				<div class="personal_center_information">
+					<div class="information_item">
+						<div class="information_title">所属公司</div>
+						<div class="information_content company">所属公司</div>
+					</div>
+					<div class="information_item">
+						<div class="information_title">所属门店</div>
+						<div class="information_content store">所属门店</div>
+					</div>
+					<div class="information_item">
+						<div class="information_title">服务小区</div>
+						<div class="information_content quarters">服务小区</div>
+					</div>
+					<div class="information_item">
+						<div class="information_title">联系电话</div>
+						<div class="information_content tel">联系电话</div>
+					</div>
+					<div class="information_item">
+						<div class="information_title">邀请人 </div>
+						<div class="information_content yaoqingren">邀请人</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="content_item">
+				<div class="item_list" data-href="need.html">
+					<a href="need"><div class="list_content">
+						<div class="list_icon">匹</div>
+						<div class="need">匹配需求</div>
+					</div>
+					</a>
+					<i class="iconfont icon-youkuohao"></i>
+				</div>
+
+				<div class="item_list" data-href="my_offer.html">
+					<div class="list_content">
+						<div class="list_icon">价</div>
+						<div>我的报价</div>
+					</div>
+					<i class="iconfont icon-youkuohao"></i>
+				</div>
+			
+
+				<div class="item_list" data-href="my_promotion.html">
+					<div class="list_content">
+						<div class="list_icon"><i class="iconfont icon-fenxiang"></i> </div>
+						<div>我的推广</div>
+					</div>
+					<i class="iconfont icon-youkuohao"></i>
+				</div>
+				
+				
+				<div class="item_list" data-href="my_ profile.html">
+					<div class="list_content">
+						<div class="list_icon"><i class="iconfont icon-wenjianfile"></i> </div>
+						<div>我的资料</div>
+					</div>
+					<i class="iconfont icon-youkuohao"></i>
+				</div>
+			
+				
+				<div class="item_list" data-href="my_account.html">
+					<div class="list_content">
+						<div class="list_icon"><i class="iconfont icon-zhanghu"></i></div>
+						<div>我的账户</div>
+					</div>
+					<i class="iconfont icon-youkuohao"></i>
+				</div>
+				
+
+			</div>
+
+			<div class="popup_box" style="display: none;">
+				荣誉值+1
+			</div>
+
+		</div>
+		<script src="../js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script>
+
+			$(document).ready(function(){
+ 				get_info()
+			})
+
+           //获取当前账户信息
+			function get_info(){
+				$.ajax({
+					url: baseUrl + 'Intermediary/mySelf',
+		           	type: 'POST',
+		           	dataType: 'json',
+		           	data: {
+		                token: localStorage.getItem('token'),
+		           	},
+		           	success:function(res){
+		           		var data= res.data.intermediary;
+		           		console.log(res);
+		           		$('.name').html(data.name);
+		           		$('.company').html(data.company);
+		           		$('.store').html(data.store);
+		           		$('.quarters').html(data.quarters);
+		           		$('.tel').html(data.tel);
+		           		$('.head_img').attr('src',data.pic);
+
+		           		//保存个人信息到本地；
+		           		var housing_price = $('#company').val();
+                          localStorage.setItem('company',company);
+                        var housing_price = $('#store').val();
+                          localStorage.setItem('store',store);
+                        var housing_price = $('#tel').val();
+                         localStorage.setItem('tel',tel);
+                         var housing_price = $('#pic').val();
+                        localStorage.setItem('pic',pic);
+                       var housing_price = $('#quarters').val();
+                        localStorage.setItem('quarters',quarters);
+		           		 consle.log(tel);
+		           	}
+				})
+			}         
+            //我的荣誉值
+            $('.signed').on('click',function(){
+              $('.popup_box').show();
+              setTimeout(function(){
+              	$('.popup_box').fadeToggle();
+              },500);
+            });
+           //登录成功后的页面
+           
+           
+           //页面跳转更改密码
+           $('.change_num').on('click',function(){
+              window.location.href  = 'need_detail.html';
+           });
+           
+           //页面跳转回上一页
+           $('.icon-jiankuohaocudazuo').on('click',function(){
+             console.log(window.location.pathname);
+
+           	  window.history.go(-1)
+             })
+			$('.content_item').on('click', '.item_list', function() {
+				window.location.href = $(this).data().href
+			})
+			$('.user_box').click(function(){
+				window.location.href='../user/credit.html'
+			})
+			$('.change_num').click(function(){
+				window.location.href='change_password.html'
+			})
+		</script>
+	</body>
+
+</html>

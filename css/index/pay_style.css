@@ -1,0 +1,90 @@
+body{
+	background: url(../../images/bg01@2x.png) center no-repeat;
+	background-size: 100% 100%;
+}
+.contaienr{
+}
+.text{
+	font-size: 0.28rem;
+	line-height: 0.54rem;
+}
+
+.header{
+	height: 1.2rem;
+	background: url(../../images/bg04@2x.png) center no-repeat;
+	background-size: 100% 100%;
+	width: 100%;
+	font-size: 0.36rem;
+	color: #FFFFFF;
+	line-height: 1.2rem;
+	padding-left: 0.27rem;
+}
+
+
+.style_list{
+	background-color: #FFFFFF;
+	width: 7.2rem;
+	margin: 0.2rem auto 0;
+	border: 1px solid #DCDCDC;
+}
+.style_item{
+	display: flex;
+	align-items: center;
+	height: 1.4rem;
+	padding-left: 0.38rem;
+	position: relative;
+	border-bottom: 1px solid #DCDCDC;
+}
+.style_item:last-child{
+	border-bottom: none;
+}
+.item_pic{
+	width: 0.68rem;
+	height: 0.68rem;
+	margin-right: 0.38rem;
+}
+.text_list{
+	width: 5rem;
+}
+.text_list p:nth-child(1){
+	font-size: 0.3rem;
+	color: #333333;
+	line-height: 0.3rem;
+}
+.text_list p:nth-child(2){
+	font-size: 0.2rem;
+	color: #888888;
+	line-height: 0.2rem;
+	margin-top: 0.2rem;
+}
+.style_radio{
+	position: absolute;
+	right: 0.4rem;
+	background: url(../../images/b04@2x.png) center no-repeat;
+	background-size: 100% 100%;
+	width: 0.45rem;
+	height: 0.45rem;
+	border-radius: 50%;
+	top: 50%;
+	margin-top: -0.22rem;
+	outline: none;
+}
+
+.style_radio:checked{
+	background: url(../../images/b03@2x.png) center no-repeat;
+	background-size: 100% 100%;
+}
+
+
+.btn{
+	width: 6.6rem;
+	height: 0.9rem;
+	color: #FFFFFF;
+	background-color: #6EC850;
+	font-size: 0.34rem;
+	text-align: center;
+	line-height: 0.9rem;
+	margin: 0.6rem auto 0;
+	border-radius: 0.05rem;
+	font-family:MicrosoftYaHei;
+}

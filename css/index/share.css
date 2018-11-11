@@ -1,0 +1,28 @@
+.contaienr{
+	padding-top: 2.1rem;
+}
+.share_tit{
+	font-size: 0.32rem;
+	line-height: 0.6rem;
+	width: 5.5rem;
+	text-align: center;
+	display: block;
+	margin: 0 auto 0;
+}
+.qr_code{
+	width: 3.4rem;
+	height: 3.4rem;
+	background-color: #FFFFFF;
+	margin:  0.64rem auto 0;
+}
+.share_btn{
+	width: 6.86rem;
+	height: 1rem;
+	background-color: #7FB230;
+	color: #FFFFFF;
+	margin: 0.64rem auto 0;
+	text-align: center;
+	border-radius: 0.5rem;
+	font-size: 0.36rem;
+	line-height: 1rem;
+}

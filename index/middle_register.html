@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <link rel="stylesheet" type="text/css" href="../css/init.css" />
+    <link rel="stylesheet" type="text/css" href="http://at.alicdn.com/t/font_658342_4rtajfzq26e.css" />
+    <link rel="stylesheet" type="text/css" href="../css/index/middle_register.css" />
+    <link rel="stylesheet" type="text/css" href="../css/weui.css" />
+    <link rel="stylesheet" type="text/css" href="../css/myweui.css" />
+    <title>中介用户注册</title>
+</head>
+
+<body>
+    <header class="mui_bar">
+        <i class="iconfont icon-fanhui"></i>
+        <h1 class="mui_title">中介注册</h1>
+    </header>
+    <div class="contaienr">
+        <!--工作信息-->
+        <p class="item_tit">—— 工作信息 ——</p>
+        <div class="register_item">
+            <p class="register_tit">省 市 区<span> </span></p>
+            <input type="text" name="" id="city" value="" class="register_input" placeholder="请填写" />
+            <img src="../images/c01@2x.png" class="jiantou" />
+        </div>
+        <div class="register_item">
+            <p class="register_tit">所属公司<span> </span></p>
+            <input type="text" name="" id="company" value="" class="register_input" placeholder="请填写" />
+        </div>
+        <div class="register_item">
+            <p class="register_tit">所属门店<span> </span></p>
+            <input type="text" name="" id="store" value="" class="register_input" placeholder="请填写" />
+        </div>
+        <div class="register_item">
+            <p class="register_tit">服务小区<span> </span></p>
+            <input type="text" name="" id="quarters" value="" class="register_input" placeholder="请填写" />
+            <img src="../images/c02@2x.png" class="jiahao" />
+        </div>
+        <!--个人信息-->
+        <p class="item_tit">—— 个人信息 ——</p>
+        <div class="register_item">
+            <p class="register_tit">手 机 号<span> </span></p>
+            <input type="text" name="" id="tel" value="" class="register_input" placeholder="请填写" />
+        </div>
+        <div class="register_item">
+            <p class="register_tit">真实姓名<span> </span></p>
+            <input type="text" name="" id="name" value="" class="register_input" placeholder="请填写" />
+        </div>
+        <p class="prompt">*一旦注册不能修改</p>
+        <!--—— 验证信息 ——-->
+        <p class="item_tit">—— 验证信息 ——</p>
+        <div class="register_item">
+            <p class="register_tit">密码<span> </span></p>
+            <input type="password" name="" id="password" value="" class="register_input" placeholder="请填写" />
+        </div>
+        <div class="register_item">
+            <p class="register_tit">确认密码<span> </span></p>
+            <input type="password" name="" id="sure_password" value="" class="register_input" placeholder="请填写" />
+        </div>
+        <div class="register_item">
+            <p class="register_tit">验 证 码<span> </span></p>
+            <p class="test_num">获取验证码</p>
+            <input type="text" name="" id="code" value="" class="register_input" placeholder="请填写" />
+        </div>
+        <p class="people_num">推荐人15649873625</p>
+        <!--人机识别-->
+        <div class="info_test">
+            <img src="../images/b01@2x.png" class="info_test_icon" />点击此处进行人机识别验证
+        </div>
+        <!--btn-->
+        <div class="user_btn">
+            完成
+        </div>
+        <!--协议-->
+        <div class="agreement">
+            <div class="check_wrap">
+                <input type="checkbox" name="" id="" value="" class="agreement_btn" />
+                <p class="agreement_text">同意<span id="paper">《比房价网站用户服务协议》</span></p>
+            </div>
+            <div class="login_wrap">
+                <p class="login">登录</p><img src="../images/b02@2x.png" class="login_pic" />
+            </div>
+        </div>
+    </div>
+    <div class="popup"></div>
+    <script src="../js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../js/base.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../js/citypicker.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../js/weui.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../js/myweui.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+        $('.user_btn').click(function() {
+            /*window.location.href='middle_login.html'*/
+        })
+        $('.paper').click(function() {
+            window.location.href = 'paper.html'
+        })
+    });
+    //选择省区市
+    $('#city').on('click ', function() {
+        weui.picker(rawCitiesData, {
+            onConfirm: function(result) {
+                $('#city').val(result[0].label + '-' + result[1].label + '-' + result[2].label);
+            }
+        });
+    })
+    //添加小区
+    var num = 0;
+    $('.jiahao').on('click', function() {
+        num++;
+        $(this).parent().clone(true).insertAfter($(this).parent());
+        $(this).remove();
+        if (num >= 3) {
+            $('.jiahao').remove();
+        }
+    });
+
+    //获取验证码 
+    /**/
+    $('.test_num').on('click', function() {
+        var myreg = /^[1][3,4,5,7,8][0-9]{9}$/;
+        var tel = $('#tel').val();
+        console.log(0)
+        if (tel == '') {
+            popup('请输入正确的手机号')
+        } else if (!myreg.test(tel)) {
+            popup('请输入正确的手机号')
+        } else {
+            get_code();
+        }
+
+    });
+    var get_switch = true;
+
+    function get_code() {
+        var tel = $('#tel').val();
+        if (get_switch) {
+            $.ajax({
+                type: 'POST',
+                datatype: 'json',
+                url: baseUrl + 'User/getSmsResult',
+                data: {
+                    tel: tel,
+                    genre: 1,
+                    connect: 1
+                },
+                success: function(res) {
+                    $('.test_num').html('10' + 's')
+                    var num = parseInt($('.test_num').html());
+                    setInterval(function() {
+                        if (parseInt($('.test_num').html()) > 1) {
+                            --num;
+                            $('.test_num').html(num + 's');
+                            get_switch = false;
+                        } else {
+                            get_switch = true;
+
+                            $('.test_num').html('再次获取');
+
+                        }
+                    }, 1000)
+                    console.log(2);
+                }
+            })
+        }
+
+    }
+    //注册接口
+    $('.user_btn').on('click', function() {
+        //数据验证
+        var city, company, store, quarters, tel, name, password, sure_password, code;
+        city = $('#city').val();
+        company = $('#company').val();
+        store = $('#store').val();
+        quarters = $('#quarters').val();
+        tel = $('#tel').val();
+        name = $('#name').val();
+        password = $('#password').val();
+        sure_password = $('#sure_password').val();
+        code = $('#code').val();
+        var myreg = /^[1][3,4,5,7,8][0-9]{9}$/;
+        if (city == '') {
+            popup('请选择城市');
+        } else if (company == '') {
+            popup('请填写公司')
+        } else if (store == '') {
+            popup('请填写门店')
+        } else if (quarters == '') {
+            popup('请填写至少一个小区')
+        } else if (tel == '' && !myreg.test(tel)) {
+            popup('手机号码不正确')
+        } else if (name == '') {
+            popup('请填写姓名')
+        } else if (password == '') {
+            popup('请输入密码')
+        } else if (password != sure_password) {
+            popup('两次密码不一致')
+        } else {
+            register();
+        }
+    });
+
+    function register() {
+        var city, company, store, quarters, tel, name, password, sure_password, code;
+        city = $('#city').val();
+        company = $('#company').val();
+        store = $('#store').val();
+        quarters = $('#quarters').val();
+        tel = $('#tel').val();
+        name = $('#name').val();
+        password = $('#password').val();
+        sure_password = $('#sure_password').val();
+        code = $('#code').val();
+        $.ajax({
+            type: 'POST',
+            datatype: 'json',
+            url: baseUrl + 'Intermediary/join',
+            data: {
+                city: city,
+                company: company,
+                store: store,
+                quarters: quarters,
+                tel: tel,
+                name: name,
+                password: password,
+                sure_password: sure_password,
+                code: code,
+                connect: 1
+            },
+            success: function(res) {
+                console.log(111)
+                window.location.href = 'middle_login.html'
+            }
+        })
+    }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,102 @@
+.info_list{
+	background-color: #FFFFFF;
+	margin-top: 0.16rem;
+}
+.info_item{
+	height: 1rem;
+	border-bottom: 1px solid #EBEBEB;
+	line-height: 1rem;
+	display: flex;
+	position: relative;
+	padding-left: 0.36rem;
+	background-color: #FFFFFF;
+}
+.info_tit{
+	width: 1.35rem;
+	font-size: 0.3rem;
+	color: #999999;
+	text-align: left;
+}
+.info_details{
+	font-size: 0.3rem;
+	color: #333333;
+	margin-left: 0.7rem;
+}
+.info_item .jiantou{
+	width: 0.16rem;
+	height: 0.28rem;
+	position: absolute;
+	right: 0.35rem;
+	top: 50%;
+	transform: translateY(-0.14rem);
+}
+.mtop{
+	margin-top: 0.16rem;
+}
+.bind{
+	position: absolute;
+	font-size: 0.3rem;
+	color: #333333;
+	right: 0.65rem;
+}
+
+
+.bind_tit{
+	font-size: 0.3rem;
+	color: #1A1A1A;
+	width: 1.5rem;
+}
+.bind_input{
+	width: 4rem;
+	border: none;
+	outline: none;
+	font-size: 0.3rem;
+}
+.get_num{
+	font-size: 0.3rem;
+	color: #80B13B;
+	position: absolute;
+	right: 0.3rem;
+	
+}
+.bind_btn{
+	width: 6.86rem;
+	height: 0.88rem;
+	color: #FFFF00;
+	background-color: #80B13B;
+	text-align: center;
+	line-height: 0.88rem;
+	margin:  0.32rem auto 0;
+	color: #FFFFFF;
+	border-radius: 0.05rem;
+	font-size: 0.36rem;
+}
+.btop{
+	border-top: 0.16rem solid #F5F5FA ;
+}
+.mask{
+	position: fixed;
+	width: 5rem;
+	height: 4.83rem;
+	display: flex;
+	flex-direction: column;
+	color: #FFFFFF;
+	font-size: 0.4rem;
+	background:rgba(0,0,0,0.8);
+	top: 50%;
+	/*margin-top: -2.4rem;*/
+	transform: translateY(-2.4rem);
+	left: 0;
+	right: 0 ;
+	margin: 0 auto;
+	justify-content: center;
+	align-items: center;
+	border-radius: 0.1rem;
+}
+.mask_pic{
+	width: 2.08rem;
+	height: 1.82rem;
+}
+.success_mask{
+	margin-top: 0.7rem;
+}

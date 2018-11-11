@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+    <title>我的报价8-4</title>
+
+    <link rel="stylesheet" href="http://at.alicdn.com/t/font_658342_8kwarb1xp0b.css">
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/mediation/my_offer3.css">
+
+
+</head>
+<body>
+<header class="mui_bar">
+    <i class="iconfont icon-fanhui"></i>
+    <h1 class="mui_title">我的报价</h1>
+</header>
+<div class="content_item">
+    <div class="item_list">
+        <div class="list_banner">
+            <div class="countdown">等待中标</div>
+            <div class="offer">倒计时：24时00分</div>
+        </div>
+        <div class="list_content">
+            <div class="address">天津市 恒大名都 23-1304</div>
+            <div class="room">1层 | 两室一厅 | 精装修</div>
+            <div class="time">发布时间：2018-04-29 10:00</div>
+            <div class="money_box">报价金额：
+                <text class="money">1000</text>
+                万元
+            </div>
+        </div>
+    </div>
+
+    <div class="item_list">
+        <div class="list_banner">
+            <div class="countdown">未入决赛</div>
+        </div>
+        <div class="list_content">
+            <div class="address">天津市 恒大名都 23-1304</div>
+            <div class="room">1层 | 两室一厅 | 精装修</div>
+            <div class="time">发布时间：2018-04-29 10:00</div>
+            <div class="money_box">报价金额：
+                <text class="money">1000</text>
+                万元
+            </div>
+        </div>
+    </div>
+
+    <div class="item_list">
+        <div class="list_banner">
+            <div class="countdown">已入决赛</div>
+            <div class="offer">倒计时：24时00分</div>
+        </div>
+        <div class="list_content">
+            <div class="address">天津市 恒大名都 23-1304</div>
+            <div class="room">1层 | 两室一厅 | 精装修</div>
+            <div class="time">发布时间：2018-04-29 10:00</div>
+            <div class="money_box">报价金额：
+                <text class="money">1000</text>
+                万元
+            </div>
+        </div>
+    </div>
+
+    <div class="item_list">
+        <div class="list_banner">
+            <div class="countdown">未中标</div>
+        </div>
+        <div class="list_content">
+            <div class="address">天津市 恒大名都 23-1304</div>
+            <div class="room">1层 | 两室一厅 | 精装修</div>
+            <div class="time">发布时间：2018-04-29 10:00</div>
+            <div class="money_box">报价金额：
+                <text class="money">1000</text>
+                万元
+            </div>
+        </div>
+    </div>
+
+    <div class="item_list">
+        <div class="list_banner">
+            <div class="countdown">已中标</div>
+            <div class="offer">倒计时：24时00分</div>
+        </div>
+        <div class="list_content">
+            <div class="address">天津市 恒大名都 23-1304</div>
+            <div class="room">1层 | 两室一厅 | 精装修</div>
+            <div class="time">发布时间：2018-04-29 10:00</div>
+            <div class="money_box">报价金额：
+                <text class="money">1000</text>
+                万元
+            </div>
+        </div>
+        <div class="confirm_btn" id="confirm_btn">确认已成交</div>
+        <div class="view_btn" id="view_btn">查看评价</div>
+    </div>
+
+</div>
+<script src="../js/fontsize.js"></script>
+<script src="../js/jquery-2.1.0.js"></script>
+<script>
+
+    $(document).ready(function () {
+        $(".view_btn").hide();
+
+        $(".confirm_btn").click(function () {
+            $(".view_btn").show();
+        });
+        $(".view_btn").click(function () {
+            window.location.href="See_evaluation.html";
+        });
+        get_price();
+    });
+     function get_price(){
+        $.ajax({
+            type:'POST',
+            datatype:'json',
+            url: baseUrl + 'Intermediary/myMoney',
+            data:{
+                page:1,
+                token:localStorage.getItem('token'),
+            },
+            success:function(res){
+                var data = res.data.need;
+                console.log(res);
+            }
+        })
+     }
+
+</script>
+</body>
+</html>

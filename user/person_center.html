@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+<link rel="stylesheet" type="text/css" href="../css/init.css" />
+<link rel="stylesheet" type="text/css" href="http://at.alicdn.com/t/font_658342_4rtajfzq26e.css" />
+<link rel="stylesheet" type="text/css" href="../css/user/person_center.css" />
+<script src="../js/base.js" type="text/javascript" charset="utf-8"></script>
+<title>用户个人中心</title>
+</head>
+
+<body>
+	<div class="contaienr">
+		<!--head-->
+		<div class="center_head">
+			<header class="mui_bar center_bar">
+				<i class="iconfont icon-fanhui"></i>
+				<h1 class="mui_title">用户个人中心</h1>
+				<p class="header_close">
+					<i class="iconfont icon-guanbi"></i>
+					退出登录
+				</p>
+			</header>
+			<div class="user_info">
+				<p class="user_name">用户名</p>
+				<p class="user_num">13649587629</p>
+				<a href="../index/release.html"><div class="btn">
+					我要比房价
+				</div>
+				</a>
+				<a href="../mediation/change_password.html"><div class="change_num">
+					修改密码
+				</div>
+				</a>
+			</div>
+		</div>
+		<!--center_list-->
+		<div class="center_list">
+			<div class="center_item" data-url = "price.html">
+				<img src="../images/ic01@2x.png" class="item_pic"/>
+				<span class="item_tit">我的比价</span>
+				<img src="../images/c07@2x.png" class="jiantou"/>
+			</div>
+			<div class="center_item" data-url = "popularize.html">
+				<img src="../images/ic02@2x.png" class="item_pic"/>
+				<span class="item_tit">我的推广</span>
+				<img src="../images/c07@2x.png" class="jiantou"/>
+			</div>
+			<div class="center_item" data-url = "information.html">
+				<img src="../images/ic03@2x.png" class="item_pic"/>
+				<span class="item_tit">我的资料</span>
+				<img src="../images/c07@2x.png" class="jiantou"/>
+			</div>
+			<div class="center_item" data-url = "../mediation/my_account.html">
+				<img src="../images/ic04@2x.png" class="item_pic"/>
+				<span class="item_tit">我要提现</span>
+				<img src="../images/c07@2x.png" class="jiantou"/>
+			</div>
+		</div>
+	</div>
+<script src="../js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+	var tel;
+	$(document).ready(function(){
+		$('.center_list').on('click','.center_item',function(){
+			window.location.href = $(this).data().url
+		})
+		myIndex();
+	})
+
+	//用户个人中心接口
+	function myIndex(){
+		tel = $('.user_num').html();
+		$.ajax({
+			url: baseUrl + 'User/myIndex',
+			type: 'POST',
+			dataType: 'json',
+			data: {
+				token: localStorage.getItem('token'),
+				tel: tel,
+			},
+			success:function(res){
+				var code = res.code;
+				var message = res.message;
+				tel = res.data.user.tel;
+				if(code == 1){
+					$('.user_num').html(tel);
+				}
+			}
+		})
+	}
+</script>
+</body>
+</html>

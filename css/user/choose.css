@@ -1,0 +1,137 @@
+.middle_info{
+	width: 7.5rem;
+	overflow-x: auto;
+	margin-top: 0.16rem;
+	font-size: 0;
+	background-color: #FFFFFF;
+}
+.middle_tab{
+	width: auto;
+}
+
+/* 中介信息 */
+.middle_ul{
+	display: inline-block;
+	width: 1.9rem;
+	background: #F7F7F7;
+	vertical-align: top;
+}
+.middle_ul li{
+	color: #1A1A1A;
+	font-size: 0.3rem;
+	text-align: center;
+	border: solid 1px #EBEBEB;
+}
+.middle_head h2{
+	width: 1rem;
+	height: 1rem;
+	margin: 0.38rem auto 0.25rem;
+	border-radius: 50%;
+}
+.middle_head h2 img{
+	width: 100%;
+	height: 100%;
+	border-radius: 50%;
+}
+.head_name{
+	color: #333333;
+	font-size: 0.3rem;
+	padding-bottom: 0.1rem;
+}
+.head_phone{
+	color: #333333;
+	font-size: 0.24rem;
+	padding-bottom: 0.1rem;
+}
+.head_home{
+	color: #666666;
+	font-size: 0.24rem;
+}
+.head_img img{
+	display: inline-block;
+	width: 0.36rem;
+	height: 0.36rem;
+	margin: 0.12rem 0;
+}
+.head_btn{
+	width: 1.60rem;
+	height: 0.6rem;
+	color: #999999;
+	font-size: 0.24rem;
+	line-height: 0.6rem;
+	text-align: center;
+	background: #F5F5FA;
+	border-radius: 0.3rem;
+	margin: 0 auto;
+}
+.mony_txt1{
+	color: #ED5B5B;
+	font-size: 0.36rem;
+	margin-top: 0.47rem;
+}
+.mony_txt2{
+	color: #999999;
+	font-size: 0.3rem;
+}
+.middle_content{
+	text-align: left;
+	padding-left: 0.31rem;
+	padding-top: 0.48rem;
+}
+.cont_txt1{
+	color: #1A1A1A;
+	font-size: 0.24rem;
+}
+.cont_txt2{
+	color: #ED5B5B;
+	font-size: 0.24rem;
+	line-height: 0.5rem;
+	padding-bottom: 0.18rem;
+}
+.cont_txt2 span{
+	display: inline-block;
+	color: #999999;
+	font-size: 0.24rem;
+}
+.middle_btn1{
+	width: 2rem;
+	height: 0.8rem;
+	color: #fff;
+	font-size: 0.3rem;
+	text-align: center;
+	line-height: 0.8rem;
+	margin: 0.31rem auto 0;
+	background: #80B13B;
+	border-radius: 0.4rem;
+}
+.middle_btn2{
+	background: #ccc;
+	margin: 0.31rem auto 0.72rem;
+}
+
+.swiper-container {
+	display: inline-block;
+  	width: 74%;
+ 	height: 100%;
+}
+.swiper-slide {
+	width: 2.41rem;
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+  border-left: solid 1px #EBEBEB;
+
+  /* Center slide text vertically */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}

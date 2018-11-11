@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+<link rel="stylesheet" type="text/css" href="../css/init.css" />
+<link rel="stylesheet" type="text/css" href="http://at.alicdn.com/t/font_658342_4rtajfzq26e.css" />
+<link rel="stylesheet" type="text/css" href="../css/index/pay_style.css" />
+<script src="../js/base.js" type="text/javascript" charset="utf-8"></script>
+<title>缴纳诚意金</title>
+</head>
+<body>
+	<header class="mui_bar">
+		<i class="iconfont icon-fanhui"></i>
+		<h1 class="mui_title">缴纳诚意金</h1>
+	</header>
+	<div class="contaienr">
+		<div class="header">
+			诚意金：1000元
+		</div>
+		<div class="style_list">
+			<div class="style_item">
+				<img src="../images/c03@2x.png" class="item_pic" />
+				<div class="text_list">
+					<p>余额支付（默认）</p>
+					<p>可用余额2000元</p>
+				</div>
+				<input type="radio" name="style" id="style" value="" class="style_radio" />
+			</div>
+			<div class="style_item">
+				<img src="../images/c04@2x.png" class="item_pic" />
+				<div class="text_list">
+					<p>微信支付</p>
+					<p>使用微信支付，安全便捷</p>
+				</div>
+				<input type="radio" name="style" id="style" value="" class="style_radio" />
+			</div>
+			<div class="style_item">
+				<img src="../images/c05@2x.png" class="item_pic" />
+				<div class="text_list">
+					<p>支付宝</p>
+					<p>支持有支付宝，网银的用户使用</p>
+				</div>
+				<input type="radio" name="style" id="style" value="" checked="checked" class="style_radio" />
+			</div>
+		</div>
+		<!--btn-->
+		<div class="btn">
+			确认支付
+		</div>
+	</div>
+<script src="../js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('.btn').click(function(event) {
+			var type = localStorage.getItem('type');
+			window.location.href='../user/publish_sub.html'
+		});
+	});
+</script>
+</body>
+</html>

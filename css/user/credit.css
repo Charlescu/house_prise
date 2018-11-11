@@ -1,0 +1,94 @@
+body{
+	background-color: #FFFFFF;
+}
+.head_info{
+	border-top: 0.16rem solid #F5F5FA;
+	border-bottom: 0.16rem solid #F5F5FA;
+	height: 1.88rem;
+	background-color: #FFFFFF;
+	overflow: hidden;
+	display: flex;
+	align-items: center;
+	position: relative;
+}
+.info_pic{
+	width: 1rem;
+	height: 1rem;
+	border-radius: 50%;
+	margin-left: 0.69rem;
+	margin-right: 0.2rem;
+}
+.info_list{
+	width: 4rem;
+}
+.info_list .info_item:nth-child(1){
+	font-size: 0.3rem;
+	color: #333333;
+	line-height: 0.3rem;
+}
+
+.info_list .info_item:nth-child(2){
+	font-size: 0.24rem;
+	color: #333333;
+	line-height: 0.24rem;
+	margin-top: 0.13rem;
+}
+
+.info_list .info_item:nth-child(3){
+	font-size: 0.24rem;
+	color: #999999;
+	line-height: 0.24rem;
+	margin-top: 0.15rem;
+}
+.star{
+	position: absolute;
+	right: 0.8rem;
+	top: 0;
+	width: 1.6rem;
+}
+.star_icon{
+	width: 0.36rem;
+	height: 0.36rem;
+	margin-top: 0.3rem;
+}
+.star_icon:last-child{
+	margin-right: 0;
+}
+.star_text{
+	font-size: 0.28rem;
+	color: #999999;
+	text-align: center;
+	margin-top: 0.3rem;
+}
+
+.star_text span{
+	font-size: 0.28rem;
+	color: #FFBB00;
+}
+
+.flex_center{
+	display: flex;
+	justify-content:space-around;
+}
+
+
+/*评价列表*/
+.evaluate_list{
+	margin-top: 0.16rem;
+	width: 7.5rem;
+}
+.evaluate_item{
+	font-size: 0.28rem;
+	color: #1A1A1A;
+	line-height: 0.28rem;
+	padding: 0.36rem 0.34rem;
+	border-bottom: 1px solid #EBEBEB;
+}
+.evaluate_name{
+	display: flex;
+	justify-content: space-between;
+}
+.evaluate_text{
+	margin-top: 0.3rem;
+	color: #999999;
+}

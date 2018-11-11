@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+<link rel="stylesheet" type="text/css" href="../css/init.css" />
+<link rel="stylesheet" type="text/css" href="http://at.alicdn.com/t/font_658342_4rtajfzq26e.css" />
+<link rel="stylesheet" type="text/css" href="../css/user/information.css" />
+<script src="../js/base.js" type="text/javascript" charset="utf-8"></script>
+<title>绑定银行卡</title>
+<style type="text/css">
+	body{
+		background-color: #FFFFFF;
+	}
+</style>
+</head>
+<body>
+	<header class="mui_bar">
+		<i class="iconfont icon-fanhui"></i>
+		<h1 class="mui_title">绑定银行卡</h1>
+	</header>
+	<div class="contaienr">
+		<div class="info_list btop">
+			<div class="info_item">
+				<p class="bind_tit">持卡人</p>
+				<p id="my_name" class="info_details">向昱筱</p>
+			</div>
+			<div class="info_item">
+				<p class="bind_tit">银行名称</p>
+				<input type="text" name="" id="bank_id" value=""  placeholder="请填写银行名称" class="info_details bind_input"/>
+			</div>
+			<div class="info_item">
+				<p class="bind_tit">银行卡号</p>
+				<input type="text" name="" id="card_num" value=""  placeholder="请填写银行卡号" class="info_details bind_input"/>
+			</div>
+			<div class="info_item">
+				<p class="bind_tit">手机验证码</p>
+				<input type="text" name="" id="code" value=""  placeholder="请填写验证码" class="info_details bind_input"/>
+				<input class="get_num" style="background: none; border: none; height: 0.98rem;" type="button" value="获取验证码">
+			</div>
+		</div>
+		<!--btn-->
+		<div class="bind_btn">
+			确认绑定
+		</div>
+		<!-- begin: 弹窗 -->
+		<div class="popup"></div>
+	</div>
+	<div class="mask" style="display: none">
+		<img src="../images/aicon092@2x.png" class="mask_pic"/>
+		
+		<span class="success_mask">绑定成功</span>
+	</div>
+<script src="../js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+	var bank_id,card_num,code,my_name;
+	var tel;
+	var countdown = 60;
+	$(document).ready(function(){
+		//确认绑定事件
+		$('.bind_btn').click(function(event) {
+			if($('#bank_id').val() == ''){
+				popup('银行名称不能为空');
+			}else if($('#card_num').val() == ''){
+				popup('银行卡号不能为空');
+			}else if($('#code').val() == ''){
+				popup('验证码不能为空');
+			}else{
+				myCard();
+			}
+		});
+
+		//验证码点击事件
+		$('.get_num').click(function() {
+			getSmsResult();
+		});
+	});
+
+	//验证码倒计时60秒
+	function settime(obj){
+		if(countdown == 0){
+			obj.attr('disabled', false);
+			obj.val( '获取验证码');
+			countdown = 60;
+			return;
+		}else{
+			obj.attr('disabled', true);
+			obj.val(countdown + '秒后再获取');
+			countdown --;
+		}
+		setTimeout(function(){
+			settime(obj);
+		},1000)
+	}
+
+	//验证码接口
+	function getSmsResult(){
+		var	obj = $('.get_num');
+		$.ajax({
+			url: baseUrl + 'User/getSmsResult',
+			type: 'POST',
+			dataType: 'json',
+			data: {
+				tel: localStorage.getItem('tel'),
+				genre: 5,
+				connect: 1,
+			},
+			success:function(res){
+				console.log(res);
+				settime(obj);
+				var code = res.code;
+				tel = localStorage.getItem('tel');
+				if(code == 1){
+					tel = (res.data.user.tel);
+				}
+			}
+		})
+	}
+	//绑定银行卡接口
+	function myCard(){
+		bank_id = $('#bank_id').val();
+		card_num = $('#card_num').val();
+		code = $('#code').val();
+		my_name = $('#my_name').html();
+		$.ajax({
+			url: baseUrl + 'User/myCard',
+			type: 'POST',
+			dataType: 'json',
+			data: {
+				bank_id: bank_id,
+				card_num: card_num,
+				code: code,
+				my_name: my_name,
+				token: localStorage.getItem('token'),
+			},
+			success:function(res){
+				console.log(res);
+				var code = res.code;
+				var message = res.message;
+				my_name = res.data.name;
+				if(code == 1){
+					$('.mask').css('display', 'block');
+					$('#my_name').html(my_name);
+				}else{
+					popup(message);
+				}
+			}
+		})
+	}
+</script>
+</body>
+</html>

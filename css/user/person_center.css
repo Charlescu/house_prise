@@ -1,0 +1,81 @@
+/*head*/
+.center_head{
+	width: 100%;
+	height: 4.5rem;
+	background: url(../../images/bg03@2x.png) center no-repeat;
+	background-size: 100% 100%;
+}
+.mui_title{
+	color: #FFFFFF;
+}
+.user_info{
+	color: #FFFFFF;
+}
+.user_info{
+	margin-top: 0.65rem;
+}
+.user_name,.user_num{
+	font-weight: bold;
+	font-size: 0.32rem;
+	display: block;
+	text-align: center;
+	line-height: 0.32rem;
+}
+.user_num{
+	margin-top: 0.31rem;
+}
+.btn{
+	background-color: #FFFFFF;
+	width: 2.44rem;
+	height: 0.6rem;
+	text-align: center;
+	line-height: 0.6rem;
+	color: #80B13B;
+	font-size: 0.3rem;
+	font-weight: bold;
+	margin: 0.38rem auto 0;
+	border-radius: 0.3rem;
+}
+.change_num{
+	width: 1.78rem;
+	height: 0.25rem;
+	font-size: 0.24rem;
+	margin: 0.3rem auto 0;
+	text-align: center;
+	border-left: 0.03rem solid #FFFFFF;
+	border-right: 0.03rem solid #FFFFFF;
+}
+
+/*center_list*/
+.center_list{
+	background-color: #FFFFFF;
+	margin-top: 0.16rem;
+}
+.center_item{
+	padding-left: 0.32rem;
+	display: flex;
+	align-items: center;
+	position: relative;
+	height: 1rem;
+	border-bottom: 1px solid #EBEBEB;
+}
+.center_item:last-child{
+	border-bottom: none;
+}
+.item_pic{
+	width: 0.5rem;
+	height: 0.5rem;
+}
+.item_tit{
+	font-size: 0.3rem;
+	color: #1A1A1A;
+	margin-left: 0.2rem;
+}
+.center_item .jiantou{
+	width: 0.16rem;
+	height: 0.28rem;
+	position: absolute;
+	right: 0.36rem;
+	top: 50%;
+	margin-top: -0.14rem;
+}

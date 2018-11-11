@@ -1,0 +1,46 @@
+.contaienr{
+	padding-top: 0.16rem;
+	position: relative;
+	height: 100%;
+}
+.rule_list{
+	background-color: #FFFFFF;
+	height: 100%;
+	padding: 0 0.32rem;
+	position: relative;
+}
+.rule_item{
+	width: 100%;
+	border-bottom: 1px solid #EBEBEB;
+	height: 1rem;
+	line-height: 1rem;
+	position: relative;
+}
+.rule_item:last-child{
+	border-bottom: none;
+}
+.rule_item p{
+	font-size: 0.3rem;
+	color: #1A1A1A;
+	
+}
+.rule_item .jiantou{
+	width: 0.16rem;
+	height: 0.28rem;
+	position: absolute;
+	right: 0;
+	top: 50%;
+	transform: translateY(-0.14rem);
+}
+.bairong{
+	position: absolute;
+	font-size: 0.24rem;
+	color: #999999;
+	text-align: center;
+	height: 1rem;
+	line-height: 1rem;
+	background-color: #FFFFFF;
+	border-top: 1px solid #EBEBEB;
+	bottom: 0;
+	width: 100%;
+}

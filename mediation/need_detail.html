@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+    <title>需求详情</title>
+    <link rel="stylesheet" type="text/css" href="../css/user/choose_details.css" />
+    <link rel="stylesheet" href="http://at.alicdn.com/t/font_658342_8kwarb1xp0b.css">
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/mediation/need_detail.css">
+    <script src="../js/base.js"></script>
+</head>
+<body>
+<header class="mui_bar">
+    <i class="iconfont icon-fanhui"></i>
+    <h1 class="mui_title">需求详情</h1>
+</header>
+<div class="banner_box">
+    <div>
+        <div class="countdown">倒计时（24时00分）</div>
+        <div class="release_time">发布时间：2018-04-29 10:00</div>
+    </div>
+    <div class="offer">10人已报价</div>
+</div>
+<div class="content_item">
+    <div class="item_list">
+        <div class="list_title">房间信息</div>
+        <div class="list_content">
+            <div class="address">湖北· 武汉 · 江岸区</div>
+            <div class="detail_address">彩丽园 · 05栋201单元03居室（2楼共6楼）</div>
+            <div class="room">3室1厅1卫（精装）</div>
+            <div class="meters">120㎡</div>
+        </div>
+    </div>
+    <div class="item_list">
+        <div class="list_title">房间信息</div>
+        <div class="list_content">
+            <div class="address">湖北· 武汉 · 江岸区</div>
+            <div class="detail_address">彩丽园 · 05栋201单元03居室（2楼共6楼）</div>
+            <div class="room">3室1厅1卫（精装）</div>
+            <div class="meters">120㎡</div>
+        </div>
+    </div>
+    <!--透视卡-->
+            <div class="card">
+                <p>300<span>／次</span></p>
+            </div>
+            <!--透视卡购买说明-->
+            <div class="card_state">
+                <p class="card_tit">透视卡购买说明：</p>
+                <p class="state_item">1、购买该卡后可查看当前最低出价者的总价（不包含增值 税、契税、个税）</p>
+                <p class="state_item">2、查看到的最低总价精确到整数万元</p>
+                <p class="state_item">3、购买该卡并不保证您一定会中标</p>
+                <p class="state_item">4、购买该卡后不论最后是否中标，购卡的费用都不会退还</p>
+            </div>
+            <!--期限-->
+            <div class="deadline">
+                <p class="deadline_time">截止到：2018/6/4 13:38:51</p>
+                <p class="deadline_money">其他中介所报的 <span class="min_money">最低价</span> 为:  <span class="money_num"> 100 </span><span class="unit">万</span></p>
+                <p class="cover">该最低价格不包含：增值税、契税、个税。</p>
+            </div>
+</div>
+
+<div class="bottom_btn">我要报价</div>
+
+<script src="../js/jquery-2.1.0.js"></script>
+<script src="../js/fontsize.js"></script>
+<script>
+     $(document).ready(function(){
+     
+     get_message();
+   })
+     function get_message(){
+        $.ajax({
+            type:'POST',
+            datatype:'json',
+            url:baseUrl + 'Intermediary/myIndex',
+            data:{
+                token:localStorage.getItem('token'),
+                page:1
+            },
+            success:function(res){
+                console.log(res);
+                var i = 0;
+                var  data =  res.data.intermediary_need[i];
+                 $('.address').html(data.city);
+                 $('.detail_address').html(data.quarters +'·'+ data.room +'(' + data.floor + ')');
+                 $('.room').html(data.house_type +'(' + data.renovation + ')')
+
+            }
+        })
+     }
+  $('.bottom_btn').on('click',function(){
+    $.ajax({
+       type:'POST',
+       datatype:'json',
+       url:baseUrl + 'Intermediary/mySend ',
+       data:{
+        
+       }
+    });
+  })
+</script>
+   
+  
+</body>
+</html>

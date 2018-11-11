@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+<link rel="stylesheet" type="text/css" href="../css/init.css" />
+<link rel="stylesheet" type="text/css" href="http://at.alicdn.com/t/font_658342_4rtajfzq26e.css" />
+<link rel="stylesheet" type="text/css" href="../css/user/publish.css" />
+<script src="../js/base.js" type="text/javascript" charset="utf-8"></script>
+<title>等待发布</title>
+</head>
+<body>
+	<header class="mui_bar">
+		<i class="iconfont icon-fanhui"></i>
+		<h1 class="mui_title">等待发布</h1>
+	</header>
+	<div class="contaienr">
+		<div class="timer">
+			<p>请再次确认您的内容填写是否完全正确,30分钟后将自动发布</p>
+			<p id="time"><i class="iconfont icon-shizhong"></i><span>30:00分钟</span></p>
+		</div>
+		<!--房屋信息-->
+		<div class="house_info">
+			<p class="info_tit">房间信息</p>
+			<p id="city" class="info_item">湖北 • 武汉 • 江岸区</p>
+			<p id="quarters" class="info_item">彩丽园 • 05栋201单元03居室（2楼共6楼）</p>
+			<p id="house_type" class="info_item">3室1厅1卫（精装）</p>
+			<p id="area" class="info_item">120㎡</p>
+		</div>
+		<!--房屋信息-->
+		<div class="house_info">
+			<p class="info_tit">购房人信息</p>
+			<p id="is_first" class="info_item">首套房 • 全款 • 包干价</p>
+			<p id="quotation_time" class="info_item">1天报价时间</p>
+			<p id="name" class="info_item"><em style="font-style:normal">张先生</em>  <span style="margin-left: 0.16rem;">18649532649</span></p>
+		</div>
+		<div class="footer">
+			<p class="publish_btn">查看已发布内容</p>
+			<p class="change_btn">修改</p>
+		</div>
+	</div>
+<script src="../js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+	var userNeed,city,quarters,room,floor,house_type,house_style_active,area;
+	var is_first,loan,contract,quotation_time,name,tel;
+	var home1,mony,tachy,qou_time;
+	$(document).ready(function(){
+		myNeed();
+
+		$('.publish_btn').click(function(event) {
+			window.location.href='price.html'
+		}); 
+	});
+	//等待发布接口
+	function myNeed(){
+		$.ajax({
+			url: baseUrl + 'User/myNeed',
+			type: 'POST',
+			dataType: 'json',
+			data: {
+				token: localStorage.getItem('token'),
+				page:1,
+			},
+			success:function(res){
+				var code = res.code;
+				var statu = res.data.user_need[0].status;
+				userNeed = localStorage.getItem('userNeed');
+				console.log(userNeed);
+
+				city = res.data.user_need[0].city;
+				quarters = res.data.user_need[0].quarters;
+				room = res.data.user_need[0].room;
+				floor = res.data.user_need[0].floor;
+				house_type = res.data.user_need[0].house_type;
+				renovation = res.data.user_need[0].renovation;
+				area = res.data.user_need[0].area;
+
+				is_first = res.data.user_need[0].is_first;
+				loan = res.data.user_need[0].loan;
+				contract = res.data.user_need[0].contract;
+				quotation_time = res.data.user_need[0].quotation_time;
+				name = res.data.user_need[0].name;
+				tel = res.data.user_need[0].tel;
+
+				//判断
+				if(is_first == 1){
+					home1 = '首套房'
+				}else{
+					home1 = '两套及以上'
+				}
+
+				if(loan == 2){
+					mony = '全款'
+				}else{
+					mony = '贷款'
+				}
+
+				if(contract == 1){
+					tachy = '要求包干价'
+				}else{
+					tachy = '不要求包干价'
+				}
+
+				if(quotation_time == 1){
+					qou_time = '1天报价时间'
+				}else{
+					qou_time = '2天报价时间'
+				}
+
+				if(code == 1){
+					userNeed = (res.data.user_need);
+					if(statu == 1){
+						$('#city').text(city);
+						$('#quarters').text(quarters + ' • ' + room +'  '+ '(' +floor+ ')');
+						$('#house_type').text(house_type + '(' + renovation + ')');
+						$('#area').text(area + '㎡');
+						
+						$('#is_first').text(home1 +' • '+ mony +' • '+ tachy);
+						$('#quotation_time').text(qou_time);
+						$('#name em').text(name);
+						$('#name span').text(tel);
+					}
+				}
+			}
+		})
+	}
+ 
+ 	//30分钟倒计时
+    var time = 29; 
+    var seconds = 59;  
+    setInterval(function () {   
+    	if(seconds<10){
+    		$('#time span').html(time +'分钟:0'+ seconds + '秒'); 
+    	}else{
+    		$('#time span').html(time +'分钟:'+ seconds + '秒');
+    	}
+    	seconds --;
+    	if(seconds<0){
+    		seconds = 59;
+    		time --;
+    	} 
+    }, 1000);
+
+    function get_price(){
+    	$.ajax({
+    		url: baseUrl + 'User/myNeed',
+    		type: 'POST',
+    		dataType: 'json',
+    		data: {
+    			token: localStorage.getItem('token'),
+				page:1,
+    		},
+    		success:function(res){
+    			
+    		}
+    	})
+    }
+    
+	var url= window.location.href;
+	var index = url.substring(url.lastIndexOf('?') + 1);
+	alert(index);
+</script>
+</body>
+</html>

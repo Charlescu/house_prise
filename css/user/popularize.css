@@ -1,0 +1,97 @@
+.banner{
+	width: 100%;
+	height: 3.6rem;
+}
+.popularize_btn{
+	font-size: 0.36rem;
+	color: #FFFFFF;
+	background-color: #7FB230;
+	width: 6.86rem;
+	height: 1rem;
+	border-radius: 0.5rem;
+	text-align: center;
+	line-height: 1rem;
+	margin: 0.36rem auto 0.27rem;
+}
+.rule{
+	background-color: #FFFFFF;
+	padding: 0.26rem 0.3rem 0.21rem;
+}
+.rule_tit{
+	font-size: 0.32rem;
+	color: #1A1A1A;
+	display: block;
+	text-align: center;
+	font-weight: bold;
+}
+.rule_text{
+	font-size: 0.3rem;
+	line-height: 0.5rem;
+	margin-top: 0.36rem;
+}
+.share{
+	margin-top: 0.16rem;
+	background-color: #FFFFFF;
+	height: 2.63rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+.share_url{
+	font-size: 0.3rem;
+	color: #333333;
+}
+.share_btn{
+	font-size: 0.3rem;
+	color: #FFFFFF;
+	width: 3.6rem;
+	height: 0.88rem;
+	background-color: #7FB230;
+	border-radius: 0.44rem;
+	text-align: center;
+	line-height: 0.88rem;
+	margin-top: 0.32rem;
+}
+.send{
+	background-color: #FFFFFF;
+	margin-top: 0.16rem;
+	margin-bottom: 1.9rem;
+}
+.send_item{
+	padding: 0.36rem 0.32rem;
+	position: relative;
+	width: 7.5rem;
+	overflow: hidden;
+	border-bottom: 1px solid #EBEBEB;
+}
+.send_item:last-child{
+	border-bottom: none;
+}
+.send_tit{
+	font-size: 0.33rem;
+	color: #333333;
+	margin-bottom: 0.29rem;
+}
+.send_need{
+	font-size: 0.24rem;
+	color: #333333;
+	margin-bottom: 0.23rem;
+	line-height: 0.24rem;
+}
+.get_time{
+	position: absolute;
+	display: flex;
+	flex-direction: column;
+	font-size: 0.24rem;
+	color: #999999;
+	right: 0.35rem;
+	top: 0.7rem;
+	width: 2rem;
+	justify-content: center;
+}
+.get_time p{
+	display: block;
+	text-align: center;
+	margin-bottom: 0.26rem;
+}

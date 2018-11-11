@@ -1,0 +1,45 @@
+.contaienr{
+	position: relative;
+	height: 100%;
+	background-color: #FFFFFF;
+}
+.banner{
+	width: 100%;
+	height: 3.6rem;
+}
+.paper{
+	background-color: #FFFFFF;
+	margin-top: 0.16rem;
+	overflow: hidden;
+	padding: 0 0.23rem;
+}
+.paper_tit{
+	font-size: 0.32rem;
+	color: #333333;
+	margin-top: 0.36rem;
+	line-height: 0.32rem;
+}
+.send_time{
+	font-size: 0.24rem;
+	color: #999999;
+	line-height: 0.24rem;
+	margin-top: 0.19rem;
+}
+.paper_content{
+	font-size: 0.28rem;
+	color: #333333;
+	line-height: 0.5rem;
+	margin-top: 0.42rem;
+}
+.bairong{
+	position: absolute;
+	font-size: 0.24rem;
+	color: #999999;
+	text-align: center;
+	height: 1rem;
+	line-height: 1rem;
+	background-color: #FFFFFF;
+	border-top: 1px solid #EBEBEB;
+	bottom: 0;
+	width: 100%;
+}

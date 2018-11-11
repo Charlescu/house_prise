@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+    <title>我要报价详情-2</title>
+
+    <link rel="stylesheet" href="http://at.alicdn.com/t/font_658342_8kwarb1xp0b.css">
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/mediation/my_offer2.css">
+
+    <script src="../js/fontsize.js"></script>
+    <script src="../js/base.js"></script>
+    <script src="../js/jquery-2.1.0.js"></script>
+</head>
+<body>
+<header class="mui_bar">
+    <i class="iconfont icon-fanhui"></i>
+</header>
+<div class="content_item">
+    <div class="title">我要报价</div>
+    <div class="hint_information"> —— 提交押金并完成 ——</div>
+
+    <div class="total"> 押金：
+        <text>1000</text>
+        元
+    </div>
+    <div class="question_list">
+        <div class="question_item">
+            <text class="question">问:</text>
+            <div class="content1">为什么要缴纳押金?</div>
+        </div>
+        <div class="question_item">
+            <text class="answer">答:</text>
+            <div class="content">天津卖房网 真实二手房产买卖信息,实时更新二手房交易资讯,就在比房价线上线下安心服务,简化选房流程,「链家」让房屋交易不再难。</div>
+        </div>
+    </div>
+    <div class="question_list">
+        <div class="question_item">
+            <text class="question">问:</text>
+            <div class="content1">为什么要缴纳押金?</div>
+        </div>
+        <div class="question_item">
+            <text class="answer">答:</text>
+            <div class="content">天津卖房网 真实二手房产买卖信息,实时更新二手房交易资讯,就在比房价线上线下安心服务,简化选房流程,「链家」让房屋交易不再难。</div>
+        </div>
+    </div>
+    <div class="bottom_btn">确认缴纳押金</div>
+</div>
+  <script>
+        $('.bottom_btn').on('click',function(){
+            var token = localStorage.getItem('token'),
+                housing_price = localStorage.getItem('housing_price');
+            $.ajax({
+                type:'POST',
+                datatype:'json',
+                url:baseUrl + 'Intermediaryneed/payMoney',
+                data:{
+                    housing_price: housing_price,
+                    token:localStorage.getItem('token'),
+                },
+                success:function(res){
+                      console.log(res);
+                      window.location.href = '../index/pay_style.html'
+                }
+            });
+        })
+  </script>
+</body>
+
+</html>

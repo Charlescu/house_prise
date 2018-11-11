@@ -1,0 +1,115 @@
+.choose_head{
+	height: 1.2rem;
+	background: url(../../images/bg04@2x.png) center no-repeat;
+	/*width: ;*/
+	background-size: 100% 100%;
+	display: flex;
+}
+.choose_time{
+	color: #FFFFFF;
+	margin-left: 0.28rem;
+}
+
+.choose_time p:nth-child(1){
+	font-size: 0.36rem;
+	line-height: 0.36rem;
+	margin-top: 0.22rem;
+}
+
+.choose_time p:nth-child(2){
+	font-size: 0.24rem;
+	line-height: 0.24rem;
+	margin-top: 0.1rem;
+}
+.head_money{
+	font-size: 0.3rem;
+	color: #FFFFFF;
+	width: 4rem;
+	line-height: 1.2rem;
+}
+.info_tit{
+	margin-top: 0.36rem;
+}
+
+/*透视卡*/
+.card{
+	width: 6.86rem;
+	height: 1.56rem;
+	background: url(../../images/bg05@2x.png) center no-repeat ;
+	background-size: 100% 100%;
+	margin: 0.16rem auto 0;
+	overflow: hidden;
+}
+.card p{
+	font-size: 0.32rem;
+	color: #FF9600;
+	margin-left: 0.52rem;
+	margin-top: 0.36rem;
+}
+.card p span{
+	font-size: 0.16rem;
+}
+
+
+/*透视卡说明*/
+.card_state{
+	width: 6.86rem;
+	background-color: #FFFFFF;
+	padding: 0.35rem 0.26rem 0.44rem 0.26rem;
+	margin: 0.16rem auto 0;
+	border-radius: 0.05rem;
+}
+.card_tit{
+	font-size: 0.28rem;
+	font-weight: bold;
+	margin-bottom: 0.44rem;
+	line-height: 0.28rem;
+}
+.state_item{
+	font-size: 0.24rem;
+	color: #666666;
+	line-height: 0.44rem;
+}
+
+/*最后的期限*/
+.deadline{
+	background-color: #FFFFFF;
+	margin: 0.16rem auto;
+	width: 6.86rem;
+	height: 2rem;
+	overflow: hidden;
+}
+.deadline_time{
+	font-size: 0.24rem;
+	color: #333333;
+	display: block;
+	text-align: center;
+	margin-top: 0.36rem;
+	line-height: 0.24rem;
+}
+.deadline_money{
+	font-size: 0.28rem;
+	color: #333333;
+	display: block;
+	text-align: center;
+	margin-top: 0.26rem;
+}
+.min_money{
+	font-size: 0.32rem;
+	color: #7FB230;
+}
+.money_num{
+	font-size: 0.36rem;
+	color: #FFBB00;
+}
+.unit{
+	font-size: 0.28rem;
+	color: #999999;
+}
+.cover{
+	font-size: 0.24rem;
+	color: #999999;
+	display: block;
+	text-align: center;
+	margin-top: 0.23rem;
+}

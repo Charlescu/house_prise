@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+<title>修改手机号</title>
+<link rel="stylesheet" href="http://at.alicdn.com/t/font_658342_8kwarb1xp0b.css">
+<link rel="stylesheet" href="../css/reset.css">
+<link rel="stylesheet" type="text/css" href="../css/init.css" />
+<link rel="stylesheet" href="../css/mediation/change_phone_num.css">
+<script src="../js/base.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body>
+<header class="mui_bar">
+    <i class="iconfont icon-fanhui"></i>
+    <h1 class="mui_title">修改手机号</h1>
+</header>
+<div class="content_item">
+    <div class="item_list">
+        <div class="list_title" style="display: inline-block; width: auto;">原手机号</div>
+        <div class="list_content" style=" display: inline-block; width: auto; color: #000; font-size: 0.36rem;">15932645987</div>
+    </div>
+    <div class="item_list1">
+        <div class="list_title">输入登录密码验证</div>
+        <div class="list_content"><input type="password" id="Password" placeholder="填写登录密码" class="input_item"></div>
+    </div>
+</div>
+
+    <!-- begin: 弹窗 -->
+    <div class="popup"></div>   
+
+<div class="save_btn">完成</div>
+<script src="../js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+    var Password;
+    //点击完成事件
+    $(document).ready(function(){
+        $('.save_btn').click(function(event) {
+            if($('#Password').val() == ''){
+                popup('登录密码不能为空');
+            }else{
+                changetTel();
+            }
+        });
+    });
+
+    //修改手机号第一步数据接口
+    function changetTel() {
+        Password = $('#Password').val();
+        $.ajax({
+            url: baseUrl + 'User/changetTel',
+            type: 'POST',
+            dataType: 'json',
+            data: {
+                Password: Password,
+                token: token,
+            },
+            success:function(res){
+                console.log(res);
+                var code = res.code;
+                var message = res.message;
+                if(code == 1){
+                    //设置浏览器token
+                    localStorage.setItem('token', res.data.token);
+                    popup('登录成功，跳转到修改页面');
+                    setTimeout(function(){
+                        window.location.href='change_phone_num2.html'
+                    },1800)
+                }else{
+                    popup(message);
+                }
+            }
+        })
+    }
+</script>
+</body>
+</html>

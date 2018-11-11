@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+    <title>我的资料</title>
+
+    <link rel="stylesheet" href="http://at.alicdn.com/t/font_658342_8kwarb1xp0b.css">
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/init.css">
+    <link rel="stylesheet" href="../css/mediation/my_ profile.css">
+    <script type="text/javascript" src="../js/base.js"></script>
+</head>
+<body>
+<header class="mui_bar">
+    <i class="iconfont icon-fanhui"></i>
+    <h1 class="mui_title">我的资料</h1>
+</header>
+<div class="content_item">
+    <div class="item_list">
+        <div class="list_title">我的头像</div>
+        <div class="list_content"><input type="text" name="file" placeholder="我的头像" class="upload input_item"></div>
+    </div>
+    <div class="item_list">
+        <div class="list_title">所属公司</div>
+        <div class="list_content"><input type="text" value="" placeholder="所属公司" class="company input_item"></div>
+    </div>
+    <div class="item_list">
+        <div class="list_title">所属门店</div>
+        <div class="list_content"><input type="text" value="" placeholder="所属门店" class="store input_item"></div>
+    </div>
+    <div class="item_list">
+        <div class="list_title">联系电话</div>
+        <div class="list_content"><input type="text" value="" placeholder="联系电话" class="tel input_item"></div>
+        
+    </div>
+
+    <div class="select_box">
+        <div class="list_title1">服务小区</div>
+        <div class="item">
+            <div class="item_list1">
+                <div class="list_content"><input type="text" value="" placeholder="服务小区" class="quarters input_item"></div>
+            </div>
+            <div class="item_list1">
+                <div class="list_content"><input type="text" value="" placeholder="服务小区" class="quarters input_item"></div>
+            </div>
+            <div class="item_list1">
+                <div class="list_content"><input type="text" value="" placeholder="服务小区" class="quarters input_item"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="item_list">
+        <div class="list_title">推荐人</div>
+        <div class="list_content"><input  type="text" value="" placeholder="推荐人" class="tuijain input_item"></div>
+    </div>
+
+    <div class="save_btn">保存修改</div>
+</div>
+<div class="popup"></div>
+<script src="../js/fontsize.js"></script>
+<script type="text/javascript" src="../js/jquery.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+     var company = localStorage.getItem('company');
+     var store = localStorage.getItem('store');
+     var tel = localStorage.getItem('tel');
+     var pic = localStorage.getItem('pic');
+     var quarters = localStorage.getItem('quarters');
+      $('#company').val(company);
+      $('#store').val(store);
+      $('#tel').val(tel);
+      $('#pic').val(pic);
+      $('#quarters').val(quarters);
+      console.log(company);
+    });
+ 
+    localStorage.getItem('token')
+    var company,store,tel,quarters,tuijian;
+    var myreg = /^[1][3,4,5,7,8][0-9]{9}$/;
+    $('.save_btn').on('click',function(){
+           company = $('#company').val();
+        store = $('.store').val();
+        tel = $('.tel').val();
+        quarters = $('.quarters').val();
+        tuijain = $('.tuijian').val();
+      if($('.company').val() == ''){
+      
+        popup('公司不能为空');
+      }else if(store == ''){
+        popup('门店不能为空')
+      }else if(tel == ''){
+        popup('电话号码不能为空')
+      }else if(!myreg.test($('.tel').val())){
+        popup('电话号码不正确')
+      }else if(quarters = ''){
+        popup('请至少填写一个小区')
+      }else if(quarters = ''){
+        popup('请填写推荐人')
+      }else{
+         company = $('#company').val();
+        store = $('.store').val();
+        tel = $('.tel').val();
+        quarters = $('.quarters').val();
+        tuijian = $('.tuijian').val();
+        $.ajax({
+            url: baseUrl + 'Intermediary/myChange',
+            type: 'POST',
+            dataType: 'json',
+            data: {
+                pic:pic,
+                company: company,
+                store: store,
+                tel: tel,
+                quarters:quarters,        
+            },
+            success:function(res){
+               
+                popup('保存成功');
+                setTimeout(function(){
+                    window.location.href = 'personal_center.html'
+                },2500)
+            },
+            error:function(res){
+                console.log('错误')
+            }
+        })
+      }    
+    });
+    
+</script>
+</body>
+</html>

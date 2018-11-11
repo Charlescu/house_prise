@@ -1,0 +1,112 @@
+.mui_bar{
+    border-bottom: 0.01rem solid #EBEBEB;
+}
+.account_balance {
+    background-color: #fff;
+    font-size: 0.26rem;
+    color: #1A1A1A;
+    padding: 0.66rem 0.33rem;
+}
+
+.money {
+    font-size: 1.2rem;
+    color: #1A1A1A;
+
+}
+
+.withdrawal_box {
+    font-size: 0.28rem;
+    color: #000;
+    background-color: #fff;
+    margin-top: 0.16rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.36rem 0.33rem;
+}
+
+.withdrawal {
+    display: flex;
+}
+.icon-youkuohao{
+    font-size: 0.28rem;
+    color: #ccc;
+}
+
+.icon-qianbao {
+    color: #1B82D1;
+}
+
+.content_item {
+    margin-top: 0.16rem;
+}
+
+.item_list {
+    background-color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.37rem 0.33rem;
+    border-bottom: 0.01rem solid #EBEBEB;
+}
+
+.list_title {
+    font-size: 0.32rem;
+    color: #000;
+}
+
+.time {
+    font-size: 0.26rem;
+    color: #999999;
+}
+
+.account {
+    font-size: 0.36rem;
+    color: #80B13B;
+}
+.mask_box{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0.88rem;
+    background: rgba(0,0,0,0.8);
+}
+.popup_box{
+    width: 5.65rem;
+    height: 4.02rem;
+    background: #FFFFFF;
+    position: fixed ;
+    top: 3.87rem;
+    left: 0.93rem;
+    text-align: center;
+    border-radius: 0.1rem;
+}
+.popup_title{
+    font-size: 0.36rem;
+    color: #000;
+    border-bottom: 1px solid #EBEBEB;
+    padding: 0.35rem 0;
+}
+.popup_account{
+    font-size: 0.30rem;
+    color: #000;
+    margin-top: 0.36rem;
+}
+.popup_withdrawal{
+    width: 5.2rem;
+    height: 0.88rem;
+    font-size: 0.36rem;
+    color: #FFFFFF;
+    background: #80B13B;
+    border-radius: 0.05rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    margin-top: 0.4rem;
+}
+.popup_hint{
+    font-size: 0.24rem;
+    color: #999;
+    margin-top: 0.2rem;
+}

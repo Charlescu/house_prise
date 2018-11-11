@@ -1,0 +1,11 @@
+body{
+	background: url(../../images/bg01@2x.png) center no-repeat;
+	background-size: 100% 100%;
+}
+.contaienr{
+	padding: 0.32rem;
+}
+.text{
+	font-size: 0.28rem;
+	line-height: 0.54rem;
+}

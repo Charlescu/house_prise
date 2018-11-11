@@ -1,0 +1,532 @@
+.head {
+	width: 100%;
+	height: 0.88rem;
+	background-color: #FFFFFF;
+	padding: 0.2rem 0.34rem;
+	display: flex;
+	position: relative;
+}
+
+.head_popup {
+	position: absolute;
+	width: 3.75rem;
+	height: 2.3rem;
+	z-index: 999;
+	right: 0.27rem;
+	top: 0.7rem;
+	background: url(../../images/juxing@2x.png) center no-repeat;
+	background-size: 100% 100%;
+	display: none;
+	padding-top: 0.2rem;
+}
+.peoply_item{
+	font-size: 0.3rem;
+	color: #1A1A1A;
+	display: block;
+	text-align: center;
+	height: 1rem;
+	font-weight: bold;
+	line-height: 1.1rem;
+	border-bottom: 1px solid #EBEBEB;
+	width: 3.52rem;
+	margin: 0 auto;
+}
+.peoply_item:last-child{
+	border-bottom: none;
+}
+.head_popup:after {
+	content: '';
+	display: block;
+	width: 0;
+	height: 0;
+	border-width: 40px;
+	border-style: solid;
+	border-color:  transparent transparent #FFFFFF transparent;
+	position: absolute;
+}
+
+.head_icon {
+	width: 1.7rem;
+	height: 0.51rem;
+	margin-right: 0.14rem;
+}
+
+.head_text {
+	display: flex;
+	flex-direction: column;
+}
+
+.sanjiao {
+	width: 0.1rem;
+	height: 0.1rem;
+	display: inline-block;
+	margin-left: 0.1rem;
+}
+
+.head_web {
+	font-size: 0.24rem;
+	color: #000000;
+	line-height: 0.24rem;
+}
+
+.head_web_sub {
+	font-size: 0.24rem;
+	line-height: 0.24rem;
+	color: #999999;
+	margin-top: 0.06rem;
+}
+
+.head .icon-user {
+	font-size: 0.5rem;
+	position: absolute;
+	right: 0.42rem;
+}
+
+
+/*banner*/
+
+.banner {
+	width: 100%;
+	height: 3.28rem;
+	position: relative;
+}
+
+.banner_pic {
+	width: 100%;
+	height: 3.28rem;
+}
+
+
+/*icon_list*/
+
+.icon_list {
+	width: 6.86rem;
+	height: 2.5rem;
+	background-color: #FFFFFF;
+	border-radius: 0.1rem;
+	position: relative;
+	margin: 0 auto;
+	left: 0;
+	margin-top: -0.18rem;
+	right: 0;
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+}
+
+.icon_item {
+	width: 1.6rem;
+	height: 1.6rem;
+	background-color: #7FB230;
+	border-radius: 50%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.icon_pic {
+	width: 0.64rem;
+	height: 0.64rem;
+}
+
+.icon_tit {
+	font-size: 0.24rem;
+	color: #FFFFFF;
+	margin-top: 0.1rem;
+}
+
+
+/*交易流程*/
+
+.deal {
+	background-color: #FFFFFF;
+	margin-top: 0.16rem;
+	overflow: hidden;
+	padding: 0.36rem 0 0.16rem;
+}
+
+.deal_tit {
+	color: #1A1A1A;
+	font-size: 0.3rem;
+	display: block;
+	text-align: center;
+}
+
+.submit_info {
+	width: 6.86rem;
+	height: 3.5rem;
+	box-shadow: 0px 0px 0.1rem #F2F2F2;
+	margin: 0.35rem auto 0;
+	border-radius: 0.1rem;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	font-size: 0.24rem;
+	color: #6FA41A;
+}
+
+.info_icon {
+	width: 1rem;
+	height: 1rem;
+	background-color: #F7F7F7;
+	border-radius: 50%;
+	overflow: hidden;
+	display: flex;
+	align-items: center;
+	margin-top: 0.36rem;
+	justify-content: center;
+	margin-bottom: 0.1rem;
+}
+
+.icon_pic {
+	width: 0.64rem;
+	height: 0.64rem;
+}
+
+.info_text {
+	width: 5.15rem;
+	margin: 0.34rem auto 0;
+	line-height: 0.42rem;
+}
+
+.jiantou {
+	display: flex;
+	height: 0.58rem;
+	align-items: center;
+	color: #7FB230;
+	margin: 0 auto;
+	width: 6.86rem;
+}
+
+.jiantou .icon-ai-arrow-down {
+	display: block;
+	text-align: center;
+	width: 3.3rem;
+}
+
+.deal_list {
+	display: flex;
+	align-items: center;
+	margin: 0 auto;
+	width: 6.86rem;
+	font-size: 0.24rem;
+	color: #6FA41A;
+}
+
+.deal_item {
+	width: 3.3rem;
+	display: flex;
+	align-items: center;
+	color: #7FB230;
+	margin: 0 auto;
+	width: 6.86rem;
+	box-shadow: 0px 0px 0.1rem #F2F2F2;
+	flex-direction: column;
+	min-height: 3.8rem;
+}
+
+.deal_item_pic {
+	width: 1rem;
+	height: 1rem;
+	background-color: #F7F7F7;
+	border-radius: 50%;
+	overflow: hidden;
+	display: flex;
+	align-items: center;
+	margin-top: 0.36rem;
+	justify-content: center;
+	margin-bottom: 0.1rem;
+}
+
+.deal_item_text {
+	margin: 0.34rem auto 0;
+	line-height: 0.42rem;
+	padding: 0.24rem;
+}
+
+
+/*选择优势*/
+
+.advantage {
+	font-size: 0.24rem;
+	width: 100%;
+	margin-top: 0.16rem;
+	background-color: #FFFFFF;
+}
+
+.advantage_item {
+	display: flex;
+	border-bottom: 1px solid #EBEBEB;
+}
+
+.advantage_item span {
+	width: 2.5rem;
+	/*min-height: 0.8rem;*/
+	min-height: 0.8rem;
+	line-height: 0.36rem;
+	text-align: center;
+	padding: 0.22rem 0.15rem;
+	box-sizing: border-box;
+	text-align: left;
+	display: flex;
+	align-items: center;
+}
+
+.advantage_item .active {
+	background-color: #E8F2D7;
+}
+
+.advantage_item .tit {
+	background-color: #7FB230;
+	color: #FFFFFF;
+}
+
+
+/*最新成交*/
+
+.new_deal {
+	background-color: #FFFFFF;
+	margin-top: 0.16rem;
+	overflow: hidden;
+}
+
+.new_item {
+	padding: 0.32rem 0;
+	margin: 0 auto;
+	width: 6.86rem;
+	border-bottom: 1px solid #EBEBEB;
+	font-size: 0.24rem;
+}
+
+.new_item:last-child {
+	border-bottom: none;
+}
+
+.new_deal_tit {
+	font-size: 0.3rem;
+	color: #333333;
+	display: block;
+	text-align: center;
+	margin-top: 0.41rem;
+}
+
+.item_top {
+	text-align: center;
+}
+
+.item_top span {
+	color: #333333;
+	margin-right: 0.3rem;
+}
+
+.item_bottom {
+	display: flex;
+	justify-content: center;
+	margin-top: 0.2rem;
+}
+
+.item_bottom p {
+	color: #333333;
+	margin-right: 0.35rem;
+	color: #333333;
+}
+
+
+/*合作伙伴*/
+
+.partner {
+	margin-top: 0.16rem;
+	background-color: #FFFFFF;
+	padding: 0 0.5rem;
+	overflow: hidden;
+}
+
+.partner_pic {
+	width: 1.21rem;
+	height: 0.73rem;
+	margin-right: 0.1rem;
+	margin-bottom: 0.1rem;
+}
+
+.partner_pic:nth-child(5n) {
+	margin-right: 0;
+}
+
+.partner_tit {
+	display: block;
+	text-align: center;
+	font-size: 0.3rem;
+	color: #1A1A1A;
+	margin-top: 0.32rem;
+	margin-bottom: 0.23rem;
+}
+
+.partner_list {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+
+/*question*/
+
+.question {
+	margin-top: 0.16rem;
+	background-color: #FFFFFF;
+	overflow: hidden;
+}
+
+.question_tit {
+	display: flex;
+	padding: 0 0.33rem;
+	font-size: 0.28rem;
+	justify-content: space-between;
+	height: 0.8rem;
+	line-height: 0.8rem;
+	border-bottom: 1px solid #EBEBEB;
+}
+
+.question_nav {
+	position: relative;
+	margin-left: 0.21rem;
+}
+
+.question_nav:after {
+	content: '';
+	display: block;
+	width: 0.05rem;
+	height: 0.32rem;
+	background-color: #7FB230;
+	position: absolute;
+	left: -0.2rem;
+	top: 50%;
+	margin-top: -0.16rem;
+}
+
+.question_item {
+	width: 6.86rem;
+	height: 1rem;
+	border-bottom: 1px solid #EBEBEB;
+	margin: 0 auto;
+	display: flex;
+	justify-content: space-between;
+	font-size: 0.3rem;
+	color: #1A1A1A;
+	align-items: center;
+}
+
+.question_item .youjiantou {
+	width: 0.16rem;
+	height: 0.28rem;
+	display: inline-block;
+}
+
+.question .question_item:last-child {
+	border-bottom: none;
+}
+
+
+/*city*/
+
+.hot_city {
+	display: flex;
+	padding: 0 0.35rem 0 0.35rem;
+	margin-top: 0.31rem;
+	justify-content: space-around;
+}
+
+.hot_city:last-child {
+	margin-bottom: 0.46rem;
+}
+
+.city_tit,
+.city_item {
+	font-size: 0.24rem;
+	color: #999999;
+}
+
+.city_tit {
+	width: 1.6rem;
+	text-align: right;
+}
+
+.city_item {
+	width: 5.7rem;
+	text-align: left;
+}
+
+.city_item span {
+	margin-right: 0.2rem;
+}
+
+
+/*footer*/
+
+.footer {
+	padding-top: 0.36rem;
+}
+
+.icon_wrap {
+	width: 1.2rem;
+	font-size: 0.24rem;
+	color: #999999;
+}
+
+.footer_list {
+	display: flex;
+	justify-content: space-around;
+}
+
+.footer_item {
+	width: 1.2rem;
+	height: 1.2rem;
+	border: 1px solid #CCCCCC;
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.footer_item .kefu {
+	width: 0.58rem;
+	height: 0.64rem;
+}
+
+.footer_item .weixin {
+	width: 0.7rem;
+	height: 0.55rem;
+}
+
+.footer_item .tuiguang {
+	width: 0.58rem;
+	height: 0.45rem;
+}
+
+.icon_wrap p {
+	display: block;
+	text-align: center;
+	margin-top: 0.2rem;
+}
+
+.footer_btn {
+	width: 5.56rem;
+	height: 0.88rem;
+	background-color: #FFFFFF;
+	border: 1px solid #EBEBEB;
+	margin: 0.32rem auto 0;
+	border-radius: 0.44rem;
+	text-align: center;
+	line-height: 0.88rem;
+	color: #999999;
+	font-size: 0.3rem;
+	margin-bottom: 0.24rem;
+}
+
+.footer_bottom {
+	height: 1rem;
+	background-color: #FFFFFF;
+	text-align: center;
+	line-height: 1rem;
+	font-size: 0.24rem;
+	color: #999999;
+}

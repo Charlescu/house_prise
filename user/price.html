@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+<link rel="stylesheet" type="text/css" href="../css/init.css" />
+<link rel="stylesheet" type="text/css" href="http://at.alicdn.com/t/font_658342_4rtajfzq26e.css" />
+<link rel="stylesheet" type="text/css" href="../css/user/price.css" />
+<script src="../js/base.js" type="text/javascript" charset="utf-8"></script>
+<title>我的比价</title>
+</head>
+<body>
+	<header class="mui_bar">
+		<i class="iconfont icon-fanhui"></i>
+		<h1 class="mui_title">我的比价</h1>
+	</header>
+	<div class="contaienr">
+		<div class="price_item" data-url = "choose_details.html">
+			<div class="item_head">
+				<p>报价中</p> <p>倒计时：24时00分</p>
+			</div>
+			<div class="price_content">
+				<p class="price_add"><span id="city">天津市</span><span id="quarters">恒大名都</span><span id="room">23-1304</span></p>
+				<p class="price_time">发布时间：2018-04-29 10:00</p>
+				<p class="price_time">诚意金额：1000元</p>
+			</div>
+		</div>
+		<div class="price_item" data-url = "choose.html">
+			<div class="item_head">
+				<p>选择中</p> <p>倒计时：24时00分</p>
+			</div>
+			<div class="price_content">
+				<p class="price_add"><span>天津市</span><span>恒大名都</span><span>23-1304</span></p>
+				<p class="price_time">发布时间：2018-04-29 10:00</p>
+				<p class="price_time">诚意金额：1000元</p>
+			</div>
+			<div class="price_btn">
+				查询对比表
+			</div>
+		</div>
+		<div class="price_item" data-url = "choose.html">
+			<div class="item_head">
+				<p>等待中介确认成交</p> <p>倒计时：24时00分</p>
+			</div>
+			<div class="price_content">
+				<p class="price_add"><span>天津市</span><span>恒大名都</span><span>23-1304</span></p>
+				<p class="price_time">发布时间：2018-04-29 10:00</p>
+				<p class="price_time">诚意金额：1000元</p>
+			</div>
+			<div class="price_btn">
+				查询对比表
+			</div>
+		</div>
+		<div class="price_item" data-url="choose.html">
+			<div class="item_head">
+				<p>已成交</p> <p>倒计时：24时00分</p>
+			</div>
+			<div class="price_content">
+				<p class="price_add"><span>天津市</span><span>恒大名都</span><span>23-1304</span></p>
+				<p class="price_time">发布时间：2018-04-29 10:00</p>
+				<p class="price_time">诚意金额：1000元</p>
+			</div>
+			<div class="price_btn" id="evaluate">
+				评价
+			</div>
+		</div>
+	</div>
+<script src="../js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+	var mynum;
+	var obj;
+	$(document).ready(function(){
+		$('.price_content').click(function(){
+			window.location.href = ''
+		})
+		$('.contaienr').on('clicf','.price_item',function(){
+			window.location.href=$(this).data().url
+		})
+		$('.evaluate').click(function(){
+			window.location.href = 'evaluate.html'
+		})
+
+		myNeed();
+		
+	})
+
+	//我的比价接口
+	function myNeed(){
+		$.ajax({
+			url: baseUrl + 'User/myNeed',
+			type: 'POST',
+			dataType: 'json',
+			data: {
+				token: localStorage.getItem('token'),
+				page: 1,
+			},
+			success:function(res){
+				var code = res.code;
+
+				if(code == 1){
+					var str = '';
+					for(var i in res.data.user_need){
+						var status = null;
+						var mybtn=''
+						if(res.data.user_need[i].status == 1){
+							status = '待发布';
+							mybtn='';						
+						}else if(res.data.user_need[i].status == 2){
+							status = '未交保证金';     
+							mybtn='';
+						}else if(res.data.user_need[i].status == 3){
+							status = '已发布，待报价';   //报价中   
+						}else if(res.data.user_need[i].status == 4){
+							status = '报价人数不足'   //报价中    状态不一样
+						}else if(res.data.user_need[i].status == 5){   
+							status = '待选择中介';
+							mybtn='<a class="price_btn" href="choose.html">查询对比表</a>';
+						}else if(res.data.user_need[i].status == 6){
+							status = '未选择中介';
+							mybtn='<a class="price_btn" href="choose.html">查询对比表</a>';
+						}else if(res.data.user_need[i].status == 7){
+							status = '已选择中介，待中介确认';
+							mybtn='<a class="price_btn" href="choose.html">查询对比表</a>';
+						}else if(res.data.user_need[i].status == 8){
+							status = '中介未确认';
+							mybtn='<a class="price_btn" href="choose.html">查询对比表</a>';
+						}else if(res.data.user_need[i].status == 9){
+							status = '删除'
+						}else if(res.data.user_need[i].status == 10){
+							status = '已成交，中介已确认';
+							mybtn='<a class="price_btn" href="choose.html">评价</a>';
+						}
+
+						str+='<div class="price_item" data-id ="'+res.data.user_need[i].id+'"data-status="'+res.data.user_need[i].status+'"><div class="item_head"><p class="status">'+status+'</p><p>倒计时：24时00分</p></div><div class="price_content" ><p class="price_add"><span class="city">'+res.data.user_need[i].city+'</span><span class="quarters">'+res.data.user_need[i].quarters+'</span><span class="room">'+res.data.user_need[i].room+'</span></p><p class="price_time">发布时间：2018-04-29 10:00</p><p class="price_time">诚意金额：1000元</p></div>'+mybtn+'</div>';
+					}
+                     
+					$('.contaienr').html(str);
+					
+				}
+			}
+		})
+	}
+
+	$('.contaienr').on('click', '.price_item',function(){
+		var status = $(this).data('status');
+		// var id = $(this).data('id');
+		switch (status) {
+			case 1:
+				window.location.href = 'publish_sub.html?id='+$(this).data().id
+				break;
+			case 2:
+				window.location.href = '../index/release.html?id='+$(this).data().id
+				break;
+			default:
+				// statements_def
+				break;
+		}
+							
+	});
+</script>
+</body>
+</html>

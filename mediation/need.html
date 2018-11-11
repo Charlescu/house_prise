@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<title>匹配需求</title>
+
+		<link rel="stylesheet" href="http://at.alicdn.com/t/font_658342_8kwarb1xp0b.css">
+		<link rel="stylesheet" href="../css/reset.css">
+		<link rel="stylesheet" href="../css/mediation/need.css">
+        <script src="../js/base.js"></script>
+	</head>
+
+	<body>
+		<header class="mui_bar">
+			<i class="iconfont icon-fanhui"></i>
+			<h1 class="mui_title">匹配需求</h1>
+		</header>
+		<div class="content_item">
+			<div class="item_list">
+				<div class="list_banner">
+					<div class="countdown">倒计时：24时59分</div>
+					<div class="offer">10人已报价</div>
+				</div>
+				<div class="list_content">
+					<div class="address">天津市 恒大名都 23-1304</div>
+					<div class="room">1层 | 两室一厅 | 精装修</div>
+					<div class="time">发布时间：2018-04-29 10:00</div>
+				</div>
+				<div class="offer_btn">我要报价</div>
+			</div>
+
+			<div class="item_list">
+				<div class="list_banner">
+					<div class="countdown">倒计时：24时59分</div>
+					<div class="offer">10人已报价</div>
+				</div>
+				<div class="list_content">
+					<div class="address">天津市 恒大名都 23-1304</div>
+					<div class="room">1层 | 两室一厅 | 精装修</div>
+					<div class="time">发布时间：2018-04-29 10:00</div>
+				</div>
+				<div class="offer_btn">我要报价</div>
+			</div>
+		</div>
+		<div class="popup"></div>
+		<script src="../js/fontsize.js"></script>
+		<script src="../js/jquery-2.1.0.js"></script>
+		<script>
+			$(document).ready(function() {
+				
+				$('.list_content').click(function() {
+					window.location.href = 'need_detail.html'
+				})
+				get_need();
+			});
+			//匹配需求接口
+			function get_need(){
+
+				$.ajax({
+					type: 'POST',
+					datatype: 'json',
+					url: baseUrl + 'Intermediary/myIndex',
+					data:{
+					 token: localStorage.getItem('token'), 
+					 page:1,
+					},
+					success:function(res){
+						console.log(res);
+						//循环得到所有需求
+						var i = 0;
+					   var	data =  res.data.intermediary_need[i];
+					   $('.address').html(data.city + '' +data.floor);
+					   $('.room').html(data.house_type + '|' +data.renovation);
+					   $('.time').html('发布时间：' + data.create_time);
+					   //保存need_id;
+					   var need_id = res.data.intermediary_need[0].id;
+					    localStorage.setItem('need_id',need_id);
+					},
+					error:function(){
+                       popup('拉取需求失败，请重新拉取');
+					}
+
+				});
+			}
+            //我要报价跳转
+              $('.offer_btn').on('click',function(){
+              	window.location.href = 'my_offer.html'
+              })
+		</script>
+	</body>
+
+</html>

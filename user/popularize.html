@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+<link rel="stylesheet" type="text/css" href="../css/init.css" />
+<link rel="stylesheet" type="text/css" href="http://at.alicdn.com/t/font_658342_4rtajfzq26e.css" />
+<link rel="stylesheet" type="text/css" href="../css/user/popularize.css" />
+<script src="../js/base.js" type="text/javascript" charset="utf-8"></script>
+<title>我的比价</title>
+</head>
+<body>
+	<header class="mui_bar">
+		<i class="iconfont icon-fanhui"></i>
+		<h1 class="mui_title">我的推广</h1>
+	</header>
+	<div class="contaienr">
+		<img src="../images/lban03@2x.png" class="banner"/>
+		<div class="popularize_btn">
+			立即推荐
+		</div>
+		<!--奖励规则-->
+		<div class="rule">
+			<p class="rule_tit">奖励规则</p>
+			<p class="rule_text">简洁是网上市场的关键，所以描述业务时要把摘要控制在300字以内。喜欢使用显着的文字量的企业所有者，也可以用一个放大的关键句来为缺乏注意力的访客提供快速外卖。“任何可以跳出文本、迅速展示页面的信息的方法都可以加分”
+保持信息简短也有利于搜索引擎优化，总部设在加州红木城的小企业营销。</p>
+		</div>
+		<!--分享-->
+		<div class="share">
+			<p class="share_url">https://customim.zbj.com/</p>
+			<div class="share_btn">点击复制邀请</div>
+		</div>
+		<!--发布-->
+		<div class="send">
+			<div class="send_item">
+				<p class="send_tit">15863215421</p>
+				<p class="send_need">发布需求：已发布</p>
+				<p class="send_need">获得奖励：未获得</p>
+				<div class="get_time">
+				<p>获得奖励时间</p>
+				<p>2018.05.11</p>
+				</div>
+			</div>
+			<div class="send_item">
+				<p class="send_tit">15863215421</p>
+				<p class="send_need">发布需求：已发布</p>
+				<p class="send_need">获得奖励：未获得</p>
+				<div class="get_time">
+				<p>获得奖励时间</p>
+				<p>2018.05.11</p>
+				</div>
+			</div>
+			<div class="send_item">
+				<p class="send_tit">15863215421</p>
+				<p class="send_need">发布需求：已发布</p>
+				<p class="send_need">获得奖励：未获得</p>
+				<div class="get_time">
+				<p>获得奖励时间</p>
+				<p>2018.05.11</p>
+				</div>
+			</div>
+		</div>
+	</div>
+<script src="../js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+	//我的比价接口
+	function compareDetail(){
+		$.ajax({
+			url: baseUrl + 'User/compareDetail',
+			type: 'POST',
+			dataType: 'json',
+			data: {
+				token: localStorage.getItem('token'),
+			},
+			success:function(res){
+				console.log(res);
+			}
+		})
+	}
+</script>
+</body>
+</html>
